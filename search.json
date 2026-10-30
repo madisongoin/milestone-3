@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Neural Atlas of Generative AI Dependence",
+    "section": "",
+    "text": "Explore how university students’ reliance on generative AI maps onto core cognitive brain networks. Based on empirical survey responses from 2,613 students, this interactive atlas connects behavioral patterns to functional neuroanatomy.\n\n\n2,613 Total Respondents\n\n\n781 Teens (Age ≤ 20)\n\n\n75% Teens Reporting Less Deep Thinking\n\n\n3.75 / 5 Prefrontal Offloading Score"
+  },
+  {
+    "objectID": "index.html#interactive-brain-explorer",
+    "href": "index.html#interactive-brain-explorer",
+    "title": "Neural Atlas of Generative AI Dependence",
+    "section": "Interactive Brain Explorer",
+    "text": "Interactive Brain Explorer\nClick any brain region below or use the selector buttons to examine how that neural circuit correlates with student habits, reliance metrics, and survey question distributions.\n\n  \n     Prefrontal Cortex\n  \n  \n     Hippocampus\n  \n  \n     Anterior Cingulate Cortex\n  \n  \n     Nucleus Accumbens\n  \n  \n     Parietal Cortex\n  \n\n\n\n  \n    \n      🧠 Human Brain: Sagittal Anatomical Projection\n      Hover over any region to reveal data\n    \n\n    \n      \n        \n          \n            \n            \n          \n        \n\n        \n        \n\n        \n        \n        \n\n        \n        \n\n        \n        \n        Occipital\n\n        \n        \n        Cerebellum\n\n        \n        \n        Brainstem\n\n        \n        \n        Corpus Callosum\n\n        \n        \n\n        \n        \n\n        \n        \n\n        \n        \n          \n          \n        \n\n        \n        \n\n        \n        \n        \n          \n          Prefrontal Cortex\n          Critical Thinking\n        \n\n        \n        \n          \n          Parietal Cortex\n          AI Usage\n        \n\n        \n        \n          \n          Anterior Cingulate\n          Verification/Trust\n        \n\n        \n        \n          Nucleus Accumbens\n          Cognitive Dependence\n        \n\n        \n        \n          \n          Hippocampus\n          Academic Planning\n        \n\n        ◀ ANTERIOR (Front)\n        POSTERIOR (Back) ▶\n      \n    \n  \n\n  \n    Critical Thinking\n    Prefrontal Cortex\n\n    \n      3.75\n      \n        / 5.0 Mean Likert Score\n        67.4% score high (≥ 3.5)\n      \n    \n\n    \n      \n    \n\n    \n      Cognitive Domain & Role\n      Critical Thinking\n      Executive function, abstract reasoning, analytical problem-solving, and cognitive effort.\n    \n\n    \n      Neurobiological Mechanism\n      \n        Excessive cognitive offloading to generative AI reduces active prefrontal engagement, diminishing the neural drive for deep analytical synthesis and independent problem solving.\n      \n    \n\n    \n      Survey Question Breakdown\n      \n        \n      \n    \n\n    \n      Demographic Comparison (Subgroup Means)"
+  },
+  {
+    "objectID": "index.html#cross-system-comparison",
+    "href": "index.html#cross-system-comparison",
+    "title": "Neural Atlas of Generative AI Dependence",
+    "section": "Cross-System Comparison",
+    "text": "Cross-System Comparison\nHow do the 5 neural systems compare across all 2,613 respondents? The chart below contrasts mean scores and agreement ratios.\n\n\n\n\n\n\n\n\n\n\n\n\nNoteKey Finding from the Data\n\n\n\nEvery single brain system averages above 3.50 out of 5.0, showing widespread behavioral and cognitive integration of AI across Bangladeshi university students. The highest domain is Parietal Cortex (AI Usage) at 3.80, followed by Prefrontal Cortex (Critical Thinking reduction) at 3.75."
+  },
+  {
+    "objectID": "index.html#neural-scan-cloud-2613-individual-respondent-scans",
+    "href": "index.html#neural-scan-cloud-2613-individual-respondent-scans",
+    "title": "Neural Atlas of Generative AI Dependence",
+    "section": "Neural Scan Cloud: 2,613 Individual Respondent Scans",
+    "text": "Neural Scan Cloud: 2,613 Individual Respondent Scans\nHover over any dot among the 2,613 student data points below to inspect their individual survey scan, discipline, and scores across the 5 neural circuits."
+  },
+  {
+    "objectID": "index.html#demographics-sample-breakdown",
+    "href": "index.html#demographics-sample-breakdown",
+    "title": "Neural Atlas of Generative AI Dependence",
+    "section": "Demographics & Sample Breakdown",
+    "text": "Demographics & Sample Breakdown\nThe study surveyed 2613 university students across academic levels, institutional models, and degree disciplines."
+  },
+  {
+    "objectID": "dataset.html",
+    "href": "dataset.html",
+    "title": "Dataset & Methodology",
+    "section": "",
+    "text": "This dataset examines generative AI adoption, cognitive offloading, and perceived intellectual dependence among 2,613 university students.\n\nlibrary(tidyverse)\nlibrary(knitr)\n\ndf &lt;- read_csv(\"data/ai_cognitive_dependence.csv\", show_col_types = FALSE)"
+  },
+  {
+    "objectID": "dataset.html#overview",
+    "href": "dataset.html#overview",
+    "title": "Dataset & Methodology",
+    "section": "",
+    "text": "This dataset examines generative AI adoption, cognitive offloading, and perceived intellectual dependence among 2,613 university students.\n\nlibrary(tidyverse)\nlibrary(knitr)\n\ndf &lt;- read_csv(\"data/ai_cognitive_dependence.csv\", show_col_types = FALSE)"
+  },
+  {
+    "objectID": "dataset.html#demographics-summary",
+    "href": "dataset.html#demographics-summary",
+    "title": "Dataset & Methodology",
+    "section": "Demographics Summary",
+    "text": "Demographics Summary\n\ndf |&gt;\n  group_by(`Academic Level`, `University Type`) |&gt;\n  summarise(\n    Respondents = n(),\n    `Mean Age` = round(mean(Age, na.rm = TRUE), 1),\n    `Female %` = round(100 * mean(Gender == \"Female\", na.rm = TRUE), 1),\n    .groups = \"drop\"\n  ) |&gt;\n  kable()\n\n\n\n\nAcademic Level\nUniversity Type\nRespondents\nMean Age\nFemale %\n\n\n\n\nPostgraduate\nPrivate University\n512\n22.8\n51.4\n\n\nPostgraduate\nPublic University\n514\n22.7\n51.0\n\n\nUndergraduate\nOther\n4\n25.5\n50.0\n\n\nUndergraduate\nPrivate University\n933\n22.2\n27.7\n\n\nUndergraduate\nPublic University\n650\n23.0\n42.6"
+  },
+  {
+    "objectID": "dataset.html#the-5-brain-regions-cognitive-constructs",
+    "href": "dataset.html#the-5-brain-regions-cognitive-constructs",
+    "title": "Dataset & Methodology",
+    "section": "The 5 Brain Regions & Cognitive Constructs",
+    "text": "The 5 Brain Regions & Cognitive Constructs\nThe survey measures 25 Likert questions across 5 dimensions, which are mapped to functional brain systems:\n\n\n\n\n\n\n\n\n\nBrain Region\nColor\nCognitive Dimension\nExemplar Survey Item\n\n\n\n\nPrefrontal Cortex (PFC)\n#8b5cf6 (Purple)\nCritical Thinking\nUsing AI tools reduces my need to think deeply.\n\n\nHippocampus\n#10b981 (Green)\nAcademic Decision-Making\nAI tools help me choose research topics or project ideas.\n\n\nAnterior Cingulate Cortex (ACC)\n#f43f5e (Red)\nTrust in AI & Verification\nI rarely verify AI-generated answers before using them.\n\n\nNucleus Accumbens\n#f59e0b (Amber)\nCognitive Dependence\nI feel uncomfortable completing academic tasks without AI tools.\n\n\nParietal Cortex\n#0ea5e9 (Cyan)\nAI Usage & Task Execution\nI depend on AI tools to complete academic work faster."
+  },
+  {
+    "objectID": "dataset.html#tidyverse-analysis-pipeline",
+    "href": "dataset.html#tidyverse-analysis-pipeline",
+    "title": "Dataset & Methodology",
+    "section": "Tidyverse Analysis Pipeline",
+    "text": "Tidyverse Analysis Pipeline\nHere is an example tidyverse pipeline calculating the cognitive dependence index:\n\nscale_map &lt;- c(\n  \"Strongly Disagree\" = 1,\n  \"Disagree\" = 2,\n  \"Neutral\" = 3,\n  \"Agree\" = 4,\n  \"Strongly Agree\" = 5\n)\n\n# Identify cognitive dependence questions\ndep_cols &lt;- names(df)[str_starts(names(df), \"Cognitive Dependence\")]\n\n# Compute student-level average dependence score\ndf_scored &lt;- df |&gt;\n  mutate(across(all_of(dep_cols), \\(x) scale_map[x])) |&gt;\n  mutate(dependence_score = rowMeans(across(all_of(dep_cols)), na.rm = TRUE))\n\ndf_scored |&gt;\n  summarise(\n    Mean_Dependence = round(mean(dependence_score, na.rm = TRUE), 2),\n    SD = round(sd(dependence_score, na.rm = TRUE), 2),\n    Pct_High_Dependence = round(100 * mean(dependence_score &gt;= 3.5, na.rm = TRUE), 1)\n  ) |&gt;\n  kable()\n\n\n\n\nMean_Dependence\nSD\nPct_High_Dependence\n\n\n\n\n3.55\n0.87\n60.1"
+  }
+]

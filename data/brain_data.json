@@ -1,0 +1,790 @@
+{
+  "metadata": {
+    "sample_size": 2613,
+    "genders": {
+      "Female": 1062,
+      "Male": 1551
+    },
+    "levels": {
+      "Postgraduate": 1026,
+      "Undergraduate": 1587
+    },
+    "universities": {
+      "Other": 4,
+      "Private University": 1445,
+      "Public University": 1164
+    },
+    "top_departments": {
+      "English": 394,
+      "CSE": 289,
+      "BBA": 235,
+      "EEE": 222,
+      "Economics": 215,
+      "Law": 204,
+      "Pharmacy": 175,
+      "Architecture": 168
+    }
+  },
+  "regions": {
+    "pfc": {
+      "id": "pfc",
+      "name": "Prefrontal Cortex",
+      "short": "PFC",
+      "color": "#8b5cf6",
+      "color_rgb": "139, 92, 246",
+      "domain": "Critical Thinking",
+      "role": "Executive function, abstract reasoning, analytical problem-solving, and cognitive effort.",
+      "neuro_note": "Excessive cognitive offloading to generative AI reduces active prefrontal engagement, diminishing the neural drive for deep analytical synthesis and independent problem solving.",
+      "prefix": "Critical Thinking",
+      "mean_score": 3.75,
+      "sd_score": 0.68,
+      "high_dependence_pct": 68.9,
+      "questions": [
+        {
+          "question": "Using AI tools reduces my need to think deeply.",
+          "mean": 3.71,
+          "agree_pct": 64.3,
+          "distribution": {
+            "Strongly Disagree": 124,
+            "Disagree": 307,
+            "Neutral": 501,
+            "Agree": 940,
+            "Strongly Agree": 741
+          },
+          "percentages": {
+            "Strongly Disagree": 4.7,
+            "Disagree": 11.7,
+            "Neutral": 19.2,
+            "Agree": 36,
+            "Strongly Agree": 28.4
+          }
+        },
+        {
+          "question": "I analyze less when using AI-generated responses.",
+          "mean": 3.87,
+          "agree_pct": 70.7,
+          "distribution": {
+            "Strongly Disagree": 111,
+            "Disagree": 201,
+            "Neutral": 454,
+            "Agree": 986,
+            "Strongly Agree": 861
+          },
+          "percentages": {
+            "Strongly Disagree": 4.2,
+            "Disagree": 7.7,
+            "Neutral": 17.4,
+            "Agree": 37.7,
+            "Strongly Agree": 33
+          }
+        },
+        {
+          "question": "I prefer AI explanations over conducting my own research.",
+          "mean": 3.67,
+          "agree_pct": 57.3,
+          "distribution": {
+            "Strongly Disagree": 106,
+            "Disagree": 402,
+            "Neutral": 608,
+            "Agree": 639,
+            "Strongly Agree": 858
+          },
+          "percentages": {
+            "Strongly Disagree": 4.1,
+            "Disagree": 15.4,
+            "Neutral": 23.3,
+            "Agree": 24.5,
+            "Strongly Agree": 32.8
+          }
+        },
+        {
+          "question": "AI tools reduce my independent problem-solving efforts.",
+          "mean": 3.76,
+          "agree_pct": 65.3,
+          "distribution": {
+            "Strongly Disagree": 98,
+            "Disagree": 312,
+            "Neutral": 497,
+            "Agree": 930,
+            "Strongly Agree": 776
+          },
+          "percentages": {
+            "Strongly Disagree": 3.8,
+            "Disagree": 11.9,
+            "Neutral": 19,
+            "Agree": 35.6,
+            "Strongly Agree": 29.7
+          }
+        },
+        {
+          "question": "I rely more on AI-generated ideas than my own thinking.",
+          "mean": 3.72,
+          "agree_pct": 66.2,
+          "distribution": {
+            "Strongly Disagree": 119,
+            "Disagree": 386,
+            "Neutral": 379,
+            "Agree": 960,
+            "Strongly Agree": 769
+          },
+          "percentages": {
+            "Strongly Disagree": 4.6,
+            "Disagree": 14.8,
+            "Neutral": 14.5,
+            "Agree": 36.7,
+            "Strongly Agree": 29.4
+          }
+        }
+      ],
+      "by_academic_level": [
+        {
+          "Academic Level": "Postgraduate",
+          "mean": 3.82,
+          "n": 1026
+        },
+        {
+          "Academic Level": "Undergraduate",
+          "mean": 3.7,
+          "n": 1587
+        }
+      ],
+      "by_university_type": [
+        {
+          "University Type": "Other",
+          "mean": 2.85,
+          "n": 4
+        },
+        {
+          "University Type": "Private University",
+          "mean": 3.76,
+          "n": 1445
+        },
+        {
+          "University Type": "Public University",
+          "mean": 3.73,
+          "n": 1164
+        }
+      ],
+      "by_gender": [
+        {
+          "Gender": "Female",
+          "mean": 3.83,
+          "n": 1062
+        },
+        {
+          "Gender": "Male",
+          "mean": 3.69,
+          "n": 1551
+        }
+      ]
+    },
+    "hippocampus": {
+      "id": "hippocampus",
+      "name": "Hippocampus",
+      "short": "Hippocampus",
+      "color": "#10b981",
+      "color_rgb": "16, 185, 129",
+      "domain": "Academic Decision-Making",
+      "role": "Episodic memory formation, knowledge consolidation, and academic trajectory planning.",
+      "neuro_note": "Relying on AI to suggest topics, organize learning, and plan study cycles bypasses hippocampal encoding loops that are fundamental to consolidating durable academic knowledge.",
+      "prefix": "Academic Decision-Making",
+      "mean_score": 3.75,
+      "sd_score": 0.68,
+      "high_dependence_pct": 69.2,
+      "questions": [
+        {
+          "question": "AI tools influence my academic decisions.",
+          "mean": 3.66,
+          "agree_pct": 60.5,
+          "distribution": {
+            "Strongly Disagree": 119,
+            "Disagree": 372,
+            "Neutral": 542,
+            "Agree": 834,
+            "Strongly Agree": 746
+          },
+          "percentages": {
+            "Strongly Disagree": 4.6,
+            "Disagree": 14.2,
+            "Neutral": 20.7,
+            "Agree": 31.9,
+            "Strongly Agree": 28.5
+          }
+        },
+        {
+          "question": "I use AI suggestions for study-related decisions.",
+          "mean": 3.76,
+          "agree_pct": 61.7,
+          "distribution": {
+            "Strongly Disagree": 94,
+            "Disagree": 199,
+            "Neutral": 709,
+            "Agree": 851,
+            "Strongly Agree": 760
+          },
+          "percentages": {
+            "Strongly Disagree": 3.6,
+            "Disagree": 7.6,
+            "Neutral": 27.1,
+            "Agree": 32.6,
+            "Strongly Agree": 29.1
+          }
+        },
+        {
+          "question": "AI tools help me choose research topics or project ideas.",
+          "mean": 3.93,
+          "agree_pct": 66.1,
+          "distribution": {
+            "Strongly Disagree": 103,
+            "Disagree": 188,
+            "Neutral": 595,
+            "Agree": 629,
+            "Strongly Agree": 1098
+          },
+          "percentages": {
+            "Strongly Disagree": 3.9,
+            "Disagree": 7.2,
+            "Neutral": 22.8,
+            "Agree": 24.1,
+            "Strongly Agree": 42
+          }
+        },
+        {
+          "question": "I use AI recommendations to improve academic performance.",
+          "mean": 3.71,
+          "agree_pct": 65.3,
+          "distribution": {
+            "Strongly Disagree": 116,
+            "Disagree": 386,
+            "Neutral": 406,
+            "Agree": 936,
+            "Strongly Agree": 769
+          },
+          "percentages": {
+            "Strongly Disagree": 4.4,
+            "Disagree": 14.8,
+            "Neutral": 15.5,
+            "Agree": 35.8,
+            "Strongly Agree": 29.4
+          }
+        },
+        {
+          "question": "AI tools positively affect my academic decision-making process.",
+          "mean": 3.67,
+          "agree_pct": 62.2,
+          "distribution": {
+            "Strongly Disagree": 108,
+            "Disagree": 398,
+            "Neutral": 483,
+            "Agree": 884,
+            "Strongly Agree": 740
+          },
+          "percentages": {
+            "Strongly Disagree": 4.1,
+            "Disagree": 15.2,
+            "Neutral": 18.5,
+            "Agree": 33.8,
+            "Strongly Agree": 28.3
+          }
+        }
+      ],
+      "by_academic_level": [
+        {
+          "Academic Level": "Postgraduate",
+          "mean": 3.76,
+          "n": 1026
+        },
+        {
+          "Academic Level": "Undergraduate",
+          "mean": 3.74,
+          "n": 1587
+        }
+      ],
+      "by_university_type": [
+        {
+          "University Type": "Other",
+          "mean": 3.4,
+          "n": 4
+        },
+        {
+          "University Type": "Private University",
+          "mean": 3.69,
+          "n": 1445
+        },
+        {
+          "University Type": "Public University",
+          "mean": 3.82,
+          "n": 1164
+        }
+      ],
+      "by_gender": [
+        {
+          "Gender": "Female",
+          "mean": 3.78,
+          "n": 1062
+        },
+        {
+          "Gender": "Male",
+          "mean": 3.72,
+          "n": 1551
+        }
+      ]
+    },
+    "acc": {
+      "id": "acc",
+      "name": "Anterior Cingulate Cortex",
+      "short": "ACC",
+      "color": "#f43f5e",
+      "color_rgb": "244, 63, 94",
+      "domain": "Trust in AI",
+      "role": "Conflict monitoring, error detection, epistemic vigilance, and intellectual skepticism.",
+      "neuro_note": "High trust and rarely verifying AI output indicates decreased anterior cingulate conflict signaling, allowing algorithmic errors and hallucinations to pass without cognitive resistance.",
+      "prefix": "Trust in AI",
+      "mean_score": 3.64,
+      "sd_score": 0.75,
+      "high_dependence_pct": 61.7,
+      "questions": [
+        {
+          "question": "I trust AI-generated academic responses.",
+          "mean": 3.63,
+          "agree_pct": 57.5,
+          "distribution": {
+            "Strongly Disagree": 118,
+            "Disagree": 388,
+            "Neutral": 605,
+            "Agree": 721,
+            "Strongly Agree": 781
+          },
+          "percentages": {
+            "Strongly Disagree": 4.5,
+            "Disagree": 14.8,
+            "Neutral": 23.2,
+            "Agree": 27.6,
+            "Strongly Agree": 29.9
+          }
+        },
+        {
+          "question": "AI tools usually provide reliable information.",
+          "mean": 3.83,
+          "agree_pct": 66.3,
+          "distribution": {
+            "Strongly Disagree": 113,
+            "Disagree": 185,
+            "Neutral": 582,
+            "Agree": 884,
+            "Strongly Agree": 849
+          },
+          "percentages": {
+            "Strongly Disagree": 4.3,
+            "Disagree": 7.1,
+            "Neutral": 22.3,
+            "Agree": 33.8,
+            "Strongly Agree": 32.5
+          }
+        },
+        {
+          "question": "I rarely verify AI-generated answers before using them.",
+          "mean": 3.51,
+          "agree_pct": 58.6,
+          "distribution": {
+            "Strongly Disagree": 309,
+            "Disagree": 386,
+            "Neutral": 386,
+            "Agree": 732,
+            "Strongly Agree": 800
+          },
+          "percentages": {
+            "Strongly Disagree": 11.8,
+            "Disagree": 14.8,
+            "Neutral": 14.8,
+            "Agree": 28,
+            "Strongly Agree": 30.6
+          }
+        },
+        {
+          "question": "I believe AI tools make better academic suggestions than I can myself.",
+          "mean": 3.55,
+          "agree_pct": 53.9,
+          "distribution": {
+            "Strongly Disagree": 109,
+            "Disagree": 397,
+            "Neutral": 698,
+            "Agree": 774,
+            "Strongly Agree": 635
+          },
+          "percentages": {
+            "Strongly Disagree": 4.2,
+            "Disagree": 15.2,
+            "Neutral": 26.7,
+            "Agree": 29.6,
+            "Strongly Agree": 24.3
+          }
+        },
+        {
+          "question": "I trust AI recommendations for academic decision-making.",
+          "mean": 3.68,
+          "agree_pct": 58.2,
+          "distribution": {
+            "Strongly Disagree": 114,
+            "Disagree": 386,
+            "Neutral": 591,
+            "Agree": 657,
+            "Strongly Agree": 865
+          },
+          "percentages": {
+            "Strongly Disagree": 4.4,
+            "Disagree": 14.8,
+            "Neutral": 22.6,
+            "Agree": 25.1,
+            "Strongly Agree": 33.1
+          }
+        }
+      ],
+      "by_academic_level": [
+        {
+          "Academic Level": "Postgraduate",
+          "mean": 3.79,
+          "n": 1026
+        },
+        {
+          "Academic Level": "Undergraduate",
+          "mean": 3.54,
+          "n": 1587
+        }
+      ],
+      "by_university_type": [
+        {
+          "University Type": "Other",
+          "mean": 3,
+          "n": 4
+        },
+        {
+          "University Type": "Private University",
+          "mean": 3.56,
+          "n": 1445
+        },
+        {
+          "University Type": "Public University",
+          "mean": 3.74,
+          "n": 1164
+        }
+      ],
+      "by_gender": [
+        {
+          "Gender": "Female",
+          "mean": 3.79,
+          "n": 1062
+        },
+        {
+          "Gender": "Male",
+          "mean": 3.54,
+          "n": 1551
+        }
+      ]
+    },
+    "nac": {
+      "id": "nac",
+      "name": "Nucleus Accumbens",
+      "short": "Nucleus Accumbens",
+      "color": "#f59e0b",
+      "color_rgb": "245, 158, 11",
+      "domain": "Cognitive Dependence",
+      "role": "Reward circuitry, dopamine reinforcement, convenience habituation, and workflow reliance.",
+      "neuro_note": "Instantaneous AI completion creates effortless reward loops in the ventral striatum, conditioning the student brain into uncomfortable withdrawal when AI is unavailable.",
+      "prefix": "Cognitive Dependence",
+      "mean_score": 3.55,
+      "sd_score": 0.87,
+      "high_dependence_pct": 60.1,
+      "questions": [
+        {
+          "question": "I feel uncomfortable completing academic tasks without AI tools.",
+          "mean": 3.42,
+          "agree_pct": 57.3,
+          "distribution": {
+            "Strongly Disagree": 314,
+            "Disagree": 417,
+            "Neutral": 385,
+            "Agree": 854,
+            "Strongly Agree": 643
+          },
+          "percentages": {
+            "Strongly Disagree": 12,
+            "Disagree": 16,
+            "Neutral": 14.7,
+            "Agree": 32.7,
+            "Strongly Agree": 24.6
+          }
+        },
+        {
+          "question": "I rely on AI before thinking independently.",
+          "mean": 3.68,
+          "agree_pct": 57.9,
+          "distribution": {
+            "Strongly Disagree": 113,
+            "Disagree": 391,
+            "Neutral": 596,
+            "Agree": 636,
+            "Strongly Agree": 877
+          },
+          "percentages": {
+            "Strongly Disagree": 4.3,
+            "Disagree": 15,
+            "Neutral": 22.8,
+            "Agree": 24.3,
+            "Strongly Agree": 33.6
+          }
+        },
+        {
+          "question": "AI tools have become essential to my academic workflow.",
+          "mean": 3.72,
+          "agree_pct": 62.5,
+          "distribution": {
+            "Strongly Disagree": 117,
+            "Disagree": 397,
+            "Neutral": 465,
+            "Agree": 744,
+            "Strongly Agree": 890
+          },
+          "percentages": {
+            "Strongly Disagree": 4.5,
+            "Disagree": 15.2,
+            "Neutral": 17.8,
+            "Agree": 28.5,
+            "Strongly Agree": 34.1
+          }
+        },
+        {
+          "question": "I use AI tools even for simple academic decisions.",
+          "mean": 3.44,
+          "agree_pct": 54.2,
+          "distribution": {
+            "Strongly Disagree": 320,
+            "Disagree": 294,
+            "Neutral": 584,
+            "Agree": 743,
+            "Strongly Agree": 672
+          },
+          "percentages": {
+            "Strongly Disagree": 12.2,
+            "Disagree": 11.3,
+            "Neutral": 22.3,
+            "Agree": 28.4,
+            "Strongly Agree": 25.7
+          }
+        },
+        {
+          "question": "I feel less confident working without AI assistance.",
+          "mean": 3.51,
+          "agree_pct": 58.1,
+          "distribution": {
+            "Strongly Disagree": 315,
+            "Disagree": 396,
+            "Neutral": 383,
+            "Agree": 689,
+            "Strongly Agree": 830
+          },
+          "percentages": {
+            "Strongly Disagree": 12.1,
+            "Disagree": 15.2,
+            "Neutral": 14.7,
+            "Agree": 26.4,
+            "Strongly Agree": 31.8
+          }
+        }
+      ],
+      "by_academic_level": [
+        {
+          "Academic Level": "Postgraduate",
+          "mean": 3.75,
+          "n": 1026
+        },
+        {
+          "Academic Level": "Undergraduate",
+          "mean": 3.43,
+          "n": 1587
+        }
+      ],
+      "by_university_type": [
+        {
+          "University Type": "Other",
+          "mean": 3.15,
+          "n": 4
+        },
+        {
+          "University Type": "Private University",
+          "mean": 3.42,
+          "n": 1445
+        },
+        {
+          "University Type": "Public University",
+          "mean": 3.72,
+          "n": 1164
+        }
+      ],
+      "by_gender": [
+        {
+          "Gender": "Female",
+          "mean": 3.8,
+          "n": 1062
+        },
+        {
+          "Gender": "Male",
+          "mean": 3.38,
+          "n": 1551
+        }
+      ]
+    },
+    "parietal": {
+      "id": "parietal",
+      "name": "Parietal Cortex",
+      "short": "Parietal Cortex",
+      "color": "#0ea5e9",
+      "color_rgb": "14, 165, 233",
+      "domain": "AI Usage",
+      "role": "Tool handling, multisensory task coordination, and execution of academic assignments.",
+      "neuro_note": "The parietal network mediates practical tool use and task execution. High regular usage across assignments reflects structural integration of AI into students day-to-day work habits.",
+      "prefix": "AI Usage",
+      "mean_score": 3.8,
+      "sd_score": 0.64,
+      "high_dependence_pct": 68.3,
+      "questions": [
+        {
+          "question": "I use generative AI tools regularly for academic purposes.",
+          "mean": 3.91,
+          "agree_pct": 73,
+          "distribution": {
+            "Strongly Disagree": 103,
+            "Disagree": 211,
+            "Neutral": 391,
+            "Agree": 1034,
+            "Strongly Agree": 874
+          },
+          "percentages": {
+            "Strongly Disagree": 3.9,
+            "Disagree": 8.1,
+            "Neutral": 15,
+            "Agree": 39.6,
+            "Strongly Agree": 33.4
+          }
+        },
+        {
+          "question": "I use AI tools for assignment writing.",
+          "mean": 3.86,
+          "agree_pct": 65.5,
+          "distribution": {
+            "Strongly Disagree": 124,
+            "Disagree": 186,
+            "Neutral": 591,
+            "Agree": 747,
+            "Strongly Agree": 965
+          },
+          "percentages": {
+            "Strongly Disagree": 4.7,
+            "Disagree": 7.1,
+            "Neutral": 22.6,
+            "Agree": 28.6,
+            "Strongly Agree": 36.9
+          }
+        },
+        {
+          "question": "I use AI tools for study planning.",
+          "mean": 3.75,
+          "agree_pct": 61.8,
+          "distribution": {
+            "Strongly Disagree": 106,
+            "Disagree": 205,
+            "Neutral": 686,
+            "Agree": 851,
+            "Strongly Agree": 765
+          },
+          "percentages": {
+            "Strongly Disagree": 4.1,
+            "Disagree": 7.8,
+            "Neutral": 26.3,
+            "Agree": 32.6,
+            "Strongly Agree": 29.3
+          }
+        },
+        {
+          "question": "I use AI tools for research-related tasks.",
+          "mean": 3.77,
+          "agree_pct": 65.4,
+          "distribution": {
+            "Strongly Disagree": 128,
+            "Disagree": 186,
+            "Neutral": 589,
+            "Agree": 956,
+            "Strongly Agree": 754
+          },
+          "percentages": {
+            "Strongly Disagree": 4.9,
+            "Disagree": 7.1,
+            "Neutral": 22.5,
+            "Agree": 36.6,
+            "Strongly Agree": 28.9
+          }
+        },
+        {
+          "question": "I depend on AI tools to complete academic work faster.",
+          "mean": 3.71,
+          "agree_pct": 62.3,
+          "distribution": {
+            "Strongly Disagree": 117,
+            "Disagree": 396,
+            "Neutral": 473,
+            "Agree": 760,
+            "Strongly Agree": 867
+          },
+          "percentages": {
+            "Strongly Disagree": 4.5,
+            "Disagree": 15.2,
+            "Neutral": 18.1,
+            "Agree": 29.1,
+            "Strongly Agree": 33.2
+          }
+        }
+      ],
+      "by_academic_level": [
+        {
+          "Academic Level": "Postgraduate",
+          "mean": 3.8,
+          "n": 1026
+        },
+        {
+          "Academic Level": "Undergraduate",
+          "mean": 3.8,
+          "n": 1587
+        }
+      ],
+      "by_university_type": [
+        {
+          "University Type": "Other",
+          "mean": 3.3,
+          "n": 4
+        },
+        {
+          "University Type": "Private University",
+          "mean": 3.82,
+          "n": 1445
+        },
+        {
+          "University Type": "Public University",
+          "mean": 3.78,
+          "n": 1164
+        }
+      ],
+      "by_gender": [
+        {
+          "Gender": "Female",
+          "mean": 3.82,
+          "n": 1062
+        },
+        {
+          "Gender": "Male",
+          "mean": 3.79,
+          "n": 1551
+        }
+      ]
+    }
+  }
+}
