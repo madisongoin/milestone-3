@@ -1,0 +1,82 @@
+---
+title: "Dataset & Methodology"
+subtitle: "Survey Structure and Neuro-Cognitive Mapping"
+format:
+  html:
+    page-layout: article
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+## Overview
+
+This dataset examines generative AI adoption, cognitive offloading, and perceived intellectual dependence among **2,613 university students**. 
+
+```{r}
+#| label: load-data
+library(tidyverse)
+library(knitr)
+
+df <- read_csv("data/ai_cognitive_dependence.csv", show_col_types = FALSE)
+```
+
+## Demographics Summary
+
+```{r}
+#| label: demographics-table
+df |>
+  group_by(`Academic Level`, `University Type`) |>
+  summarise(
+    Respondents = n(),
+    `Mean Age` = round(mean(Age, na.rm = TRUE), 1),
+    `Female %` = round(100 * mean(Gender == "Female", na.rm = TRUE), 1),
+    .groups = "drop"
+  ) |>
+  kable()
+```
+
+## The 5 Brain Regions & Cognitive Constructs
+
+The survey measures 25 Likert questions across 5 dimensions, which are mapped to functional brain systems:
+
+| Brain Region | Color | Cognitive Dimension | Exemplar Survey Item |
+|:---|:---|:---|:---|
+| **Prefrontal Cortex (PFC)** | `#8b5cf6` (Purple) | Critical Thinking | *Using AI tools reduces my need to think deeply.* |
+| **Hippocampus** | `#10b981` (Green) | Academic Decision-Making | *AI tools help me choose research topics or project ideas.* |
+| **Anterior Cingulate Cortex (ACC)** | `#f43f5e` (Red) | Trust in AI & Verification | *I rarely verify AI-generated answers before using them.* |
+| **Nucleus Accumbens** | `#f59e0b` (Amber) | Cognitive Dependence | *I feel uncomfortable completing academic tasks without AI tools.* |
+| **Parietal Cortex** | `#0ea5e9` (Cyan) | AI Usage & Task Execution | *I depend on AI tools to complete academic work faster.* |
+
+## Tidyverse Analysis Pipeline
+
+Here is an example tidyverse pipeline calculating the cognitive dependence index:
+
+```{r}
+#| label: sample-pipeline
+scale_map <- c(
+  "Strongly Disagree" = 1,
+  "Disagree" = 2,
+  "Neutral" = 3,
+  "Agree" = 4,
+  "Strongly Agree" = 5
+)
+
+# Identify cognitive dependence questions
+dep_cols <- names(df)[str_starts(names(df), "Cognitive Dependence")]
+
+# Compute student-level average dependence score
+df_scored <- df |>
+  mutate(across(all_of(dep_cols), \(x) scale_map[x])) |>
+  mutate(dependence_score = rowMeans(across(all_of(dep_cols)), na.rm = TRUE))
+
+df_scored |>
+  summarise(
+    Mean_Dependence = round(mean(dependence_score, na.rm = TRUE), 2),
+    SD = round(sd(dependence_score, na.rm = TRUE), 2),
+    Pct_High_Dependence = round(100 * mean(dependence_score >= 3.5, na.rm = TRUE), 1)
+  ) |>
+  kable()
+```

@@ -1,0 +1,442 @@
+---
+title: "Neural Atlas of Generative AI Dependence"
+subtitle: "An Interactive Exploration of Survey Responses Across 5 Cognitive Brain Regions"
+format:
+  html:
+    page-layout: full
+    toc: true
+    toc-location: right
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+library(tidyverse)
+library(plotly)
+library(htmltools)
+
+# Load survey data
+df <- read_csv("data/ai_cognitive_dependence.csv", show_col_types = FALSE)
+
+scale_map <- c(
+  "Strongly Disagree" = 1,
+  "Disagree" = 2,
+  "Neutral" = 3,
+  "Agree" = 4,
+  "Strongly Agree" = 5
+)
+
+# Extract column names
+cols <- names(df)
+```
+
+::: {.hero-banner}
+# Neural Atlas of AI Cognitive Dependence
+Explore how university students' reliance on generative AI maps onto core cognitive brain networks. Based on empirical survey responses from **`r format(nrow(df), big.mark = ",")` students**, this interactive atlas connects behavioral patterns to functional neuroanatomy.
+
+::: {.stats-grid}
+::: {.stat-pill}
+<span class="num">`r format(nrow(df), big.mark = ",")`</span>
+<span class="label">Total Respondents</span>
+:::
+::: {.stat-pill}
+<span class="num">781</span>
+<span class="label">Teens (Age ≤ 20)</span>
+:::
+::: {.stat-pill}
+<span class="num">75%</span>
+<span class="label">Teens Reporting Less Deep Thinking</span>
+:::
+::: {.stat-pill}
+<span class="num">3.75 / 5</span>
+<span class="label">Prefrontal Offloading Score</span>
+:::
+:::
+:::
+
+::: {.callout-important}
+### 🧠 Executive Summary: Does AI Reduce Critical Thinking in Teens?
+**Yes, the data indicates strong cognitive reduction.** Among teens and younger undergraduates (n = 781, age ≤ 20):
+
+- **77.8%** report they analyze less when using AI responses.
+- **76.8%** rely more on AI-generated ideas than their own thinking.
+- **76.3%** acknowledge AI reduces their independent problem-solving efforts.
+- **75.0%** explicitly state AI reduces their need to think deeply.
+
+*Takeaway:* Generative AI acts as a "cognitive crutch" — providing instant answers that short-circuit prefrontal cognitive friction and reduce active analytical reasoning.
+:::
+
+## Interactive Brain Explorer
+
+Click any brain region below or use the selector buttons to examine how that neural circuit correlates with student habits, reliance metrics, and survey question distributions.
+
+```{=html}
+<div class="region-nav">
+  <button type="button" class="region-btn active" data-reg="pfc">
+    <span class="dot" style="background-color: #8b5cf6;"></span> Prefrontal Cortex
+  </button>
+  <button type="button" class="region-btn" data-reg="hippocampus">
+    <span class="dot" style="background-color: #10b981;"></span> Hippocampus
+  </button>
+  <button type="button" class="region-btn" data-reg="acc">
+    <span class="dot" style="background-color: #f43f5e;"></span> Anterior Cingulate Cortex
+  </button>
+  <button type="button" class="region-btn" data-reg="nac">
+    <span class="dot" style="background-color: #f59e0b;"></span> Nucleus Accumbens
+  </button>
+  <button type="button" class="region-btn" data-reg="parietal">
+    <span class="dot" style="background-color: #0ea5e9;"></span> Parietal Cortex
+  </button>
+</div>
+
+<div class="explorer-container">
+  <div class="brain-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+      <span style="font-weight: 700; font-size: 0.95rem; color: #cbd5e1;">🧠 Human Brain: Sagittal Anatomical Projection</span>
+      <span style="font-size: 0.8rem; color: #38bdf8; font-weight: 600;">Hover over any region to reveal data</span>
+    </div>
+
+    <div class="brain-svg-wrapper">
+      <svg class="brain-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" role="img" aria-label="Interactive Brain Diagram">
+        <defs>
+          <linearGradient id="bg-canvas" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#070a12"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Blueprint backdrop -->
+        <rect width="100%" height="100%" fill="url(#bg-canvas)" rx="12"/>
+
+        <!-- Orientation guidelines -->
+        <line x1="80" y1="250" x2="680" y2="250" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1"/>
+        <line x1="360" y1="40" x2="360" y2="470" stroke="#1e293b" stroke-dasharray="3,3" stroke-width="1"/>
+
+        <!-- Anatomical Outer Silhouette (Dark Slate base) -->
+        <path d="M 110,245 C 95,205 105,150 145,110 C 185,70 250,50 350,50 C 450,50 540,75 610,135 C 665,185 675,250 645,305 C 630,335 595,355 565,360 C 585,385 580,425 540,445 C 490,460 445,435 435,395 C 410,400 380,440 375,470 L 335,470 C 335,410 320,370 290,350 C 235,360 190,340 165,305 C 130,305 115,275 110,245 Z" fill="#131b2e" stroke="#334155" stroke-width="2"/>
+
+        <!-- Occipital Lobe (Context) -->
+        <path d="M 540,140 C 590,175 650,215 645,305 C 610,340 550,345 510,310 C 495,240 515,180 540,140 Z" fill="#1e293b" stroke="#334155" stroke-width="1.5" opacity="0.6"/>
+        <text x="590" y="240" fill="#64748b" font-size="11" font-style="italic" text-anchor="middle">Occipital</text>
+
+        <!-- Cerebellum (Context) -->
+        <path d="M 455,360 C 495,345 565,350 580,395 C 570,440 515,458 450,432 C 435,395 438,370 455,360 Z" fill="#1e293b" stroke="#475569" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.75"/>
+        <text x="525" y="405" fill="#64748b" font-size="11" font-style="italic" text-anchor="middle">Cerebellum</text>
+
+        <!-- Brainstem (Context) -->
+        <path d="M 345,360 C 370,365 385,385 390,420 L 375,470 L 335,470 Z" fill="#1e293b" stroke="#475569" stroke-width="1.5" opacity="0.8"/>
+        <text x="355" y="445" fill="#64748b" font-size="10" font-style="italic" text-anchor="middle">Brainstem</text>
+
+        <!-- Corpus Callosum Arch (Context) -->
+        <path d="M 245,235 C 230,195 260,165 320,160 C 385,160 435,185 445,225 C 420,215 380,185 320,185 C 265,185 245,215 245,235 Z" fill="#334155" stroke="#475569" stroke-width="1.5" opacity="0.9"/>
+        <text x="330" y="180" fill="#94a3b8" font-size="9" text-anchor="middle">Corpus Callosum</text>
+
+        <!-- 1. PREFRONTAL CORTEX (PFC) -->
+        <path id="reg-pfc" data-region="pfc" class="brain-region" role="button" tabindex="0" aria-label="Prefrontal Cortex" d="M 110,245 C 95,200 110,145 145,110 C 185,70 235,55 280,62 C 275,120 250,175 220,220 C 185,255 145,270 110,245 Z" fill="#8b5cf6" fill-opacity="0.85" stroke="#a78bfa" stroke-width="3"/>
+
+        <!-- 2. PARIETAL CORTEX -->
+        <path id="reg-parietal" data-region="parietal" class="brain-region" role="button" tabindex="0" aria-label="Parietal Cortex" d="M 280,62 C 350,50 440,55 540,140 C 515,180 495,240 445,225 C 370,175 310,170 280,62 Z" fill="#0ea5e9" fill-opacity="0.85" stroke="#38bdf8" stroke-width="3"/>
+
+        <!-- 3. ANTERIOR CINGULATE CORTEX (ACC) -->
+        <path id="reg-acc" data-region="acc" class="brain-region" role="button" tabindex="0" aria-label="Anterior Cingulate Cortex" d="M 245,235 C 220,205 235,145 280,120 C 345,120 380,135 385,155 C 340,155 275,160 245,235 Z" fill="#f43f5e" fill-opacity="0.92" stroke="#fb7185" stroke-width="3"/>
+
+        <!-- 4. NUCLEUS ACCUMBENS (NAc) -->
+        <g id="reg-nac" data-region="nac" class="brain-region" role="button" tabindex="0" aria-label="Nucleus Accumbens">
+          <ellipse cx="260" cy="265" rx="22" ry="18" fill="#f59e0b" fill-opacity="0.95" stroke="#fcd34d" stroke-width="3"/>
+          <circle cx="260" cy="265" r="9" fill="#ffffff" fill-opacity="0.5"/>
+        </g>
+
+        <!-- 5. HIPPOCAMPUS -->
+        <path id="reg-hippocampus" data-region="hippocampus" class="brain-region" role="button" tabindex="0" aria-label="Hippocampus" d="M 300,310 C 340,325 395,320 440,275 C 450,255 425,245 400,265 C 360,280 325,290 300,310 Z" fill="#10b981" fill-opacity="0.92" stroke="#34d399" stroke-width="3"/>
+
+        <!-- Interactive Pinpoint Labels on the Brain Shape -->
+        <!-- PFC -->
+        <g transform="translate(180, 160)" pointer-events="none">
+          <circle r="4" fill="#ffffff"/>
+          <text x="0" y="-12" fill="#ffffff" font-weight="700" font-size="12" text-anchor="middle" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.9))">Prefrontal Cortex</text>
+          <text x="0" y="3" fill="#ddd6fe" font-size="10" text-anchor="middle">Critical Thinking</text>
+        </g>
+
+        <!-- Parietal -->
+        <g transform="translate(420, 125)" pointer-events="none">
+          <circle r="4" fill="#ffffff"/>
+          <text x="0" y="-12" fill="#ffffff" font-weight="700" font-size="12" text-anchor="middle" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.9))">Parietal Cortex</text>
+          <text x="0" y="3" fill="#bae6fd" font-size="10" text-anchor="middle">AI Usage</text>
+        </g>
+
+        <!-- ACC -->
+        <g transform="translate(295, 140)" pointer-events="none">
+          <circle r="3.5" fill="#ffffff"/>
+          <text x="0" y="-12" fill="#ffffff" font-weight="700" font-size="11" text-anchor="middle" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.9))">Anterior Cingulate</text>
+          <text x="0" y="2" fill="#fecdd3" font-size="9" text-anchor="middle">Verification/Trust</text>
+        </g>
+
+        <!-- NAc -->
+        <g transform="translate(260, 300)" pointer-events="none">
+          <text x="0" y="8" fill="#fef08a" font-weight="700" font-size="11" text-anchor="middle" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.9))">Nucleus Accumbens</text>
+          <text x="0" y="20" fill="#fef9c3" font-size="9" text-anchor="middle">Cognitive Dependence</text>
+        </g>
+
+        <!-- Hippocampus -->
+        <g transform="translate(370, 318)" pointer-events="none">
+          <circle r="3.5" fill="#ffffff"/>
+          <text x="0" y="16" fill="#a7f3d0" font-weight="700" font-size="11" text-anchor="middle" filter="drop-shadow(0 1px 3px rgba(0,0,0,0.9))">Hippocampus</text>
+          <text x="0" y="28" fill="#d1fae5" font-size="9" text-anchor="middle">Academic Planning</text>
+        </g>
+
+        <text x="80" y="30" fill="#64748b" font-size="11" font-weight="600">◀ ANTERIOR (Front)</text>
+        <text x="680" y="30" fill="#64748b" font-size="11" font-weight="600" text-anchor="end">POSTERIOR (Back) ▶</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="detail-card">
+    <span id="detail-badge" class="region-badge" style="background-color: #8b5cf6;">Critical Thinking</span>
+    <h2 id="detail-title" style="margin: 0; font-size: 1.6rem; font-weight: 800; color: #ffffff;">Prefrontal Cortex</h2>
+
+    <div class="score-display">
+      <span id="detail-score-num" class="score-num" style="color: #8b5cf6;">3.75</span>
+      <div class="score-sub">
+        <div>/ 5.0 Mean Likert Score</div>
+        <div id="detail-high-pct" style="font-weight: 600; color: #94a3b8;">67.4% score high (≥ 3.5)</div>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div id="detail-progress-bar" class="progress-bar-fill" style="width: 68.75%; background-color: #8b5cf6;"></div>
+    </div>
+
+    <div class="detail-section">
+      <h4>Cognitive Domain & Role</h4>
+      <p id="detail-domain" style="font-weight: 600; color: #f8fafc; margin-bottom: 0.25rem;">Critical Thinking</p>
+      <p id="detail-role" style="font-size: 0.88rem; color: #cbd5e1; line-height: 1.5;">Executive function, abstract reasoning, analytical problem-solving, and cognitive effort.</p>
+    </div>
+
+    <div class="detail-section">
+      <h4>Neurobiological Mechanism</h4>
+      <div id="detail-neuro" class="neuro-box" style="border-left-color: #8b5cf6;">
+        Excessive cognitive offloading to generative AI reduces active prefrontal engagement, diminishing the neural drive for deep analytical synthesis and independent problem solving.
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <h4>Survey Question Breakdown</h4>
+      <div id="detail-questions">
+        <!-- Populated dynamically via brain_explorer.js -->
+      </div>
+    </div>
+
+    <div class="detail-section">
+      <h4>Demographic Comparison (Subgroup Means)</h4>
+      <div id="detail-subgroups" class="subgroup-grid">
+        <!-- Populated dynamically via brain_explorer.js -->
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Cross-System Comparison
+
+How do the 5 neural systems compare across all 2,613 respondents? The chart below contrasts mean scores and agreement ratios.
+
+```{r}
+#| label: region-comparison-plot
+#| fig-height: 5
+
+regions_summary <- tibble(
+  Region = c("Parietal Cortex", "Hippocampus", "Prefrontal Cortex", "Anterior Cingulate", "Nucleus Accumbens"),
+  Cognitive_Domain = c("AI Usage", "Academic Decisions", "Critical Thinking", "Trust & Verification", "Cognitive Dependence"),
+  Prefix = c("AI Usage", "Academic Decision-Making", "Critical Thinking", "Trust in AI", "Cognitive Dependence"),
+  Color = c("#0ea5e9", "#10b981", "#8b5cf6", "#f43f5e", "#f59e0b")
+) |>
+  rowwise() |>
+  mutate(
+    q_cols = list(cols[str_starts(cols, fixed(Prefix))]),
+    matrix_vals = list(as.matrix(mutate(select(df, all_of(q_cols)), across(everything(), \(x) scale_map[x])))),
+    mean_score = round(mean(rowMeans(matrix_vals, na.rm = TRUE)), 2),
+    pct_agree = round(100 * mean(rowMeans(matrix_vals, na.rm = TRUE) >= 3.5), 1)
+  ) |>
+  ungroup() |>
+  arrange(mean_score)
+
+p <- plot_ly(
+  data = regions_summary,
+  x = ~mean_score,
+  y = ~reorder(Region, mean_score),
+  type = "bar",
+  orientation = "h",
+  marker = list(
+    color = ~Color,
+    line = list(color = "#1e293b", width = 1)
+  ),
+  text = ~paste0(mean_score, " / 5 (", pct_agree, "% high)"),
+  textposition = "outside",
+  hoverinfo = "text",
+  hovertext = ~paste0(
+    "<b>", Region, "</b><br>",
+    "Cognitive Domain: ", Cognitive_Domain, "<br>",
+    "Mean Score: ", mean_score, " / 5<br>",
+    "Students with High Dependence: ", pct_agree, "%"
+  )
+) |>
+  layout(
+    xaxis = list(
+      title = "Mean Likert Score (1: Strongly Disagree, 5: Strongly Agree)",
+      range = c(1, 5.3),
+      tickvals = 1:5,
+      ticktext = c("1 - Str. Disagree", "2 - Disagree", "3 - Neutral", "4 - Agree", "5 - Str. Agree"),
+      color = "#cbd5e1",
+      gridcolor = "#1f2937"
+    ),
+    yaxis = list(title = "", color = "#cbd5e1"),
+    margin = list(l = 150, r = 50, t = 30, b = 50),
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor = "rgba(0,0,0,0)",
+    font = list(family = "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto", size = 12, color = "#cbd5e1")
+  )
+
+p
+```
+
+::: {.callout-note}
+### Key Finding from the Data
+Every single brain system averages above **3.50 out of 5.0**, showing widespread behavioral and cognitive integration of AI across Bangladeshi university students. The highest domain is **Parietal Cortex (AI Usage)** at **3.80**, followed by **Prefrontal Cortex (Critical Thinking reduction)** at **3.75**.
+:::
+
+## Neural Scan Cloud: 2,613 Individual Respondent Scans
+
+Hover over any dot among the **2,613 student data points** below to inspect their individual survey scan, discipline, and scores across the 5 neural circuits.
+
+```{r}
+#| label: scans-scatter-plot
+#| fig-height: 6
+
+pfc_cols <- cols[str_starts(cols, "Critical Thinking")]
+nac_cols <- cols[str_starts(cols, "Cognitive Dependence")]
+hippo_cols <- cols[str_starts(cols, "Academic Decision-Making")]
+acc_cols <- cols[str_starts(cols, "Trust in AI")]
+parietal_cols <- cols[str_starts(cols, "AI Usage")]
+
+set.seed(42)
+
+df_scans <- df |>
+  mutate(across(c(all_of(pfc_cols), all_of(nac_cols), all_of(hippo_cols), all_of(acc_cols), all_of(parietal_cols)), \(x) scale_map[x])) |>
+  mutate(
+    scan_id = paste0("Scan #", row_number()),
+    pfc = round(rowMeans(across(all_of(pfc_cols)), na.rm = TRUE), 2),
+    nac = round(rowMeans(across(all_of(nac_cols)), na.rm = TRUE), 2),
+    hippo = round(rowMeans(across(all_of(hippo_cols)), na.rm = TRUE), 2),
+    acc = round(rowMeans(across(all_of(acc_cols)), na.rm = TRUE), 2),
+    parietal = round(rowMeans(across(all_of(parietal_cols)), na.rm = TRUE), 2),
+    # Subtle jitter to separate overlapping integer Likert averages
+    pfc_jitter = round(pfc + runif(n(), -0.05, 0.05), 3),
+    nac_jitter = round(nac + runif(n(), -0.05, 0.05), 3),
+    hover_label = paste0(
+      "<b>", scan_id, "</b> • ", `Department/Discipline`, "<br>",
+      "<b>Level:</b> ", `Academic Level`, " (", Gender, ", Age ", Age, ")<br>",
+      "<b>University:</b> ", `University Type`, "<br>",
+      "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>",
+      "🧠 <b>Prefrontal (Critical Thinking):</b> ", pfc, " / 5<br>",
+      "⚡ <b>Nucleus Accumbens (Dependence):</b> ", nac, " / 5<br>",
+      "🌱 <b>Hippocampus (Study Planning):</b> ", hippo, " / 5<br>",
+      "🔍 <b>ACC (Verification/Trust):</b> ", acc, " / 5<br>",
+      "🛠️ <b>Parietal (Task Execution):</b> ", parietal, " / 5"
+    )
+  )
+
+p_scatter <- plot_ly(
+  data = df_scans,
+  x = ~pfc_jitter,
+  y = ~nac_jitter,
+  color = ~`Academic Level`,
+  colors = c("Undergraduate" = "#a78bfa", "Postgraduate" = "#38bdf8"),
+  type = "scatter",
+  mode = "markers",
+  marker = list(
+    size = 6.5,
+    opacity = 0.68,
+    line = list(width = 0.5, color = "rgba(255,255,255,0.2)")
+  ),
+  hoverinfo = "text",
+  text = ~hover_label
+) |>
+  layout(
+    title = list(
+      text = "<b>2,613 Individual Student Scans: Executive Function vs. Cognitive Dependence</b>",
+      font = list(color = "#f8fafc", size = 15)
+    ),
+    xaxis = list(
+      title = "Prefrontal Cortex Score (Reduced Critical Thinking)",
+      color = "#cbd5e1",
+      gridcolor = "#1f2937",
+      zerolinecolor = "#334155",
+      range = c(0.8, 5.2)
+    ),
+    yaxis = list(
+      title = "Nucleus Accumbens Score (Cognitive Dependence & Habituation)",
+      color = "#cbd5e1",
+      gridcolor = "#1f2937",
+      zerolinecolor = "#334155",
+      range = c(0.8, 5.2)
+    ),
+    legend = list(
+      title = list(text = "<b>Academic Level</b>", font = list(color = "#f8fafc")),
+      font = list(color = "#cbd5e1"),
+      bgcolor = "rgba(17, 24, 39, 0.8)",
+      bordercolor = "#334155",
+      borderwidth = 1
+    ),
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor = "#0b0f19",
+    font = list(family = "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto", color = "#cbd5e1")
+  )
+
+p_scatter
+```
+
+## Demographics & Sample Breakdown
+
+The study surveyed **`r nrow(df)` university students** across academic levels, institutional models, and degree disciplines.
+
+```{r}
+#| label: demographics-plots
+#| fig-height: 4
+
+acad_df <- df |>
+  count(`Academic Level`, name = "count") |>
+  mutate(pct = round(count / sum(count) * 100, 1))
+
+p_demog <- plot_ly(
+  data = acad_df,
+  labels = ~`Academic Level`,
+  values = ~count,
+  type = "pie",
+  hole = 0.5,
+  marker = list(colors = c("#a78bfa", "#38bdf8")),
+  textinfo = "label+percent",
+  hoverinfo = "label+value+percent"
+) |>
+  layout(
+    title = list(text = "Distribution by Academic Level", font = list(size = 14, color = "#f8fafc")),
+    showlegend = TRUE,
+    paper_bgcolor = "rgba(0,0,0,0)",
+    legend = list(font = list(color = "#cbd5e1")),
+    font = list(color = "#cbd5e1"),
+    margin = list(t = 40, b = 20, l = 20, r = 20)
+  )
+
+p_demog
+```
+
+```{r}
+#| label: inline-json
+#| results: asis
+json_content <- readLines("data/brain_data.json", warn = FALSE) |> paste(collapse = "\n")
+cat(paste0("<script>\nwindow.BRAIN_DATA = ", json_content, ";\n</script>"))
+```
+
+<script src="brain_explorer.js"></script>

@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - data/brain_data.json
+
+website:
+  title: "AI Cognitive Dependence & The Brain"
+  navbar:
+    background: "#0f172a"
+    search: false
+    left:
+      - href: index.qmd
+        text: "Interactive Brain Atlas"
+      - href: dataset.qmd
+        text: "Dataset & Methodology"
+
+format:
+  html:
+    theme: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 2
