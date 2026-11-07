@@ -51,13 +51,6 @@ function initExplorer() {
     });
   });
 
-  // Trigger Plotly resize when switching horizontal Bootstrap tabs
-  document.querySelectorAll('[data-bs-toggle="tab"]').forEach(tabEl => {
-    tabEl.addEventListener("shown.bs.tab", () => {
-      window.dispatchEvent(new Event("resize"));
-    });
-  });
-
   // Select initial region
   selectRegion("pfc");
 }

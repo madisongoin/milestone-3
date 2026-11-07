@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -42,10 +77,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-8738567893f1394dc1d63bcf673e0620.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-8da4526e46a15af4cf68a6c409f79d07.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -118,27 +153,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul class="collapse">
-  <li><a href="#about-the-survey-how-it-works" id="toc-about-the-survey-how-it-works" class="nav-link active" data-scroll-target="#about-the-survey-how-it-works">About the Survey &amp; How It Works</a></li>
-  <li><a href="#how-student-answers-are-scored-1-to-5-scale" id="toc-how-student-answers-are-scored-1-to-5-scale" class="nav-link" data-scroll-target="#how-student-answers-are-scored-1-to-5-scale">1. How Student Answers Are Scored (1 to 5 Scale)</a></li>
-  <li><a href="#how-the-survey-connects-to-the-brain-sections-bf" id="toc-how-the-survey-connects-to-the-brain-sections-bf" class="nav-link" data-scroll-target="#how-the-survey-connects-to-the-brain-sections-bf">2. How the Survey Connects to the Brain (Sections B–F)</a></li>
-  <li><a href="#all-survey-questions-student-answers-sections-af" id="toc-all-survey-questions-student-answers-sections-af" class="nav-link" data-scroll-target="#all-survey-questions-student-answers-sections-af">3. All Survey Questions &amp; Student Answers (Sections A–F)</a></li>
-  <li><a href="#quick-summary-comparing-all-5-sections" id="toc-quick-summary-comparing-all-5-sections" class="nav-link" data-scroll-target="#quick-summary-comparing-all-5-sections">4. Quick Summary Comparing All 5 Sections</a></li>
-  <li><a href="#who-took-the-survey-student-breakdown" id="toc-who-took-the-survey-student-breakdown" class="nav-link" data-scroll-target="#who-took-the-survey-student-breakdown">5. Who Took the Survey? (Student Breakdown)</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#demographics-summary" id="toc-demographics-summary" class="nav-link" data-scroll-target="#demographics-summary">Demographics Summary</a></li>
+  <li><a href="#the-5-brain-regions-cognitive-constructs" id="toc-the-5-brain-regions-cognitive-constructs" class="nav-link" data-scroll-target="#the-5-brain-regions-cognitive-constructs">The 5 Brain Regions &amp; Cognitive Constructs</a></li>
+  <li><a href="#tidyverse-analysis-pipeline" id="toc-tidyverse-analysis-pipeline" class="nav-link" data-scroll-target="#tidyverse-analysis-pipeline">Tidyverse Analysis Pipeline</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Dataset &amp; Methodology</h1>
-<p class="subtitle lead">How the Survey Was Built, How It Connects to the Brain, and What All 2,613 Students Answered</p>
+<p class="subtitle lead">Survey Structure and Neuro-Cognitive Mapping</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
   
@@ -150,1020 +183,176 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about-the-survey-how-it-works" class="level1 hero-banner">
-<h1>About the Survey &amp; How It Works</h1>
-<p>This project explores how university students use and rely on generative AI tools (like ChatGPT) for their everyday schoolwork. A total of <strong>2,613 university students</strong> answered <strong>30 questions</strong> grouped into <strong>6 simple sections (Sections A–F)</strong>: 5 background questions about who they are, and 25 questions about their AI habits.</p>
-<div class="stats-grid">
-<div class="stat-pill">
-<p><span class="num">2,613</span> <span class="label">Students Surveyed</span></p>
-</div>
-<div class="stat-pill">
-<p><span class="num">6 Sections</span> <span class="label">Sections A through F</span></p>
-</div>
-<div class="stat-pill">
-<p><span class="num">25 Questions</span> <span class="label">Scored from 1 to 5</span></p>
-</div>
-<div class="stat-pill">
-<p><span class="num">35</span> <span class="label">College Majors Included</span></p>
-</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This dataset examines generative AI adoption, cognitive offloading, and perceived intellectual dependence among <strong>2,613 university students</strong>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ai_cognitive_dependence.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="how-student-answers-are-scored-1-to-5-scale" class="level2">
-<h2 class="anchored" data-anchor-id="how-student-answers-are-scored-1-to-5-scale">1. How Student Answers Are Scored (1 to 5 Scale)</h2>
-<p>For every question in <strong>Sections B through F</strong>, students picked how much they agreed on a simple <strong>1 to 5 scale</strong>:</p>
-<div class="guide-strip">
-<div class="guide-step">
-<p><strong>1 = Strongly Disagree</strong> “I never do this or don’t rely on AI this way at all.”</p>
-</div>
-<div class="guide-step">
-<p><strong>2 = Disagree</strong> “I rarely use AI for this part of my schoolwork.”</p>
-</div>
-<div class="guide-step">
-<p><strong>3 = Neutral</strong> “I’m in the middle—sometimes I do, sometimes I don’t.”</p>
-</div>
-<div class="guide-step">
-<p><strong>4 = Agree</strong> “I regularly rely on AI for this mental task.”</p>
-</div>
-<div class="guide-step">
-<p><strong>5 = Strongly Agree</strong> “I heavily depend on AI for this almost every time.”</p>
-</div>
-</div>
-<ul>
-<li><strong>Average Score (out of 5):</strong> Each section has 5 questions. We average a student’s 5 answers to get their overall score for that section (from <strong>1.00</strong> to <strong>5.00</strong>).</li>
-<li><strong>What Counts as “High Reliance”?</strong> An average score of <strong>3.50 or higher</strong> means the student mostly answered <em>Agree</em> or <em>Strongly Agree</em>.</li>
-<li><strong>% Who Agree:</strong> The percentage of students who picked either <strong>4 (Agree)</strong> or <strong>5 (Strongly Agree)</strong> on a question.</li>
-</ul>
-<hr>
-</section>
-<section id="how-the-survey-connects-to-the-brain-sections-bf" class="level2">
-<h2 class="anchored" data-anchor-id="how-the-survey-connects-to-the-brain-sections-bf">2. How the Survey Connects to the Brain (Sections B–F)</h2>
-<p>Each of the five AI-habit sections (<strong>Sections B–F</strong>) matches a specific part of the human brain that handles that exact type of thinking. <strong>Hover over or click any colored region on the brain—or any section card on the right—to see how they match up:</strong></p>
-<div class="mapping-sync-grid">
-  <div class="brain-card" style="position: static;">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
-      <span style="font-weight: 700; font-size: 0.95rem; color: #243642;">🧠 Color-Coded Brain Map</span>
-      <span style="font-size: 0.8rem; color: #4d9b86; font-weight: 600;">Hover or click to highlight matching section</span>
-    </div>
-
-    <div class="brain-svg-wrapper">
-      <svg class="brain-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 760 500" role="img" aria-label="Color-Coded Brain Map for Survey Sections B to F">
-        <defs>
-          <lineargradient id="bg-canvas-map" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f2f7f5"></stop>
-            <stop offset="100%" stop-color="#e6f0ed"></stop>
-          </lineargradient>
-        </defs>
-
-        <!-- Smooth wave backdrop -->
-        <rect width="100%" height="100%" fill="url(#bg-canvas-map)" rx="12"></rect>
-        <path d="M 0,90 C 200,30 380,150 580,80 C 670,50 720,65 760,85 L 760,0 L 0,0 Z" fill="#dfeee9" fill-opacity="0.65"></path>
-        <path d="M 0,430 C 220,370 430,480 640,410 C 700,390 735,400 760,415 L 760,500 L 0,500 Z" fill="#e2e9f5" fill-opacity="0.6"></path>
-        <circle cx="370" cy="240" r="200" fill="none" stroke="#dbe8e4" stroke-width="1.5"></circle>
-
-        <!-- Brain Silhouette -->
-        <path d="M 110,245 C 95,205 105,150 145,110 C 185,70 250,50 350,50 C 450,50 540,75 610,135 C 665,185 675,250 645,305 C 630,335 595,355 565,360 C 585,385 580,425 540,445 C 490,460 445,435 435,395 C 410,400 380,440 375,470 L 335,470 C 335,410 320,370 290,350 C 235,360 190,340 165,305 C 130,305 115,275 110,245 Z" fill="#ffffff" stroke="#9bb2ad" stroke-width="2.5"></path>
-
-        <!-- Context structures -->
-        <path d="M 540,140 C 590,175 650,215 645,305 C 610,340 550,345 510,310 C 495,240 515,180 540,140 Z" fill="#edf3f1" stroke="#b8ccc8" stroke-width="1.5" opacity="0.85"></path>
-        <path d="M 455,360 C 495,345 565,350 580,395 C 570,440 515,458 450,432 C 435,395 438,370 455,360 Z" fill="#e8f0ee" stroke="#9bb2ad" stroke-width="1.5" opacity="0.9"></path>
-        <path d="M 345,360 C 370,365 385,385 390,420 L 375,470 L 335,470 Z" fill="#e8f0ee" stroke="#9bb2ad" stroke-width="1.5" opacity="0.9"></path>
-        <path d="M 245,235 C 230,195 260,165 320,160 C 385,160 435,185 445,225 C 420,215 380,185 320,185 C 265,185 245,215 245,235 Z" fill="#dce7e4" stroke="#a7bdb8" stroke-width="1.5" opacity="0.95"></path>
-
-        <!-- Section E: Prefrontal Cortex -->
-        <path data-sync="sec-e" class="sync-brain-region" d="M 110,245 C 95,200 110,145 145,110 C 185,70 235,55 280,62 C 275,120 250,175 220,220 C 185,255 145,270 110,245 Z" fill="#6c7ae0" fill-opacity="0.84" stroke="#5362c7" stroke-width="2.5"></path>
-
-        <!-- Section B: Parietal Cortex -->
-        <path data-sync="sec-b" class="sync-brain-region synced-active" d="M 280,62 C 350,50 440,55 540,140 C 515,180 495,240 445,225 C 370,175 310,170 280,62 Z" fill="#4f93b8" fill-opacity="0.84" stroke="#3b7a9e" stroke-width="2.5"></path>
-
-        <!-- Section D: Anterior Cingulate -->
-        <path data-sync="sec-d" class="sync-brain-region" d="M 245,235 C 220,205 235,145 280,120 C 345,120 380,135 385,155 C 340,155 275,160 245,235 Z" fill="#d97b73" fill-opacity="0.86" stroke="#bf5f56" stroke-width="2.5"></path>
-
-        <!-- Section C: Nucleus Accumbens -->
-        <g data-sync="sec-c" class="sync-brain-region">
-          <ellipse cx="260" cy="265" rx="22" ry="18" fill="#d99b52" fill-opacity="0.92" stroke="#bd7f37" stroke-width="2.5"></ellipse>
-          <circle cx="260" cy="265" r="8" fill="#ffffff" fill-opacity="0.55"></circle>
-        </g>
-
-        <!-- Section F: Hippocampus -->
-        <path data-sync="sec-f" class="sync-brain-region" d="M 300,310 C 340,325 395,320 440,275 C 450,255 425,245 400,265 C 360,280 325,290 300,310 Z" fill="#4d9b86" fill-opacity="0.88" stroke="#38806c" stroke-width="2.5"></path>
-
-        <!-- Labels showing both Brain Area & Survey Section -->
-        <g transform="translate(182, 155)" pointer-events="none">
-          <text x="0" y="-6" fill="#ffffff" font-weight="700" font-size="12" text-anchor="middle">Prefrontal Cortex</text>
-          <text x="0" y="9" fill="#f0f2ff" font-size="10.5" font-weight="700" text-anchor="middle">Section E: Critical Thinking</text>
-        </g>
-
-        <g transform="translate(415, 120)" pointer-events="none">
-          <text x="0" y="-6" fill="#ffffff" font-weight="700" font-size="12" text-anchor="middle">Parietal Cortex</text>
-          <text x="0" y="9" fill="#eef8fc" font-size="10.5" font-weight="700" text-anchor="middle">Section B: AI Usage</text>
-        </g>
-
-        <g transform="translate(302, 142)" pointer-events="none">
-          <text x="0" y="-3" fill="#ffffff" font-weight="700" font-size="11" text-anchor="middle">Anterior Cingulate</text>
-          <text x="0" y="10" fill="#fff2f0" font-size="9.5" font-weight="700" text-anchor="middle">Section D: Trust in AI</text>
-        </g>
-
-        <g transform="translate(242, 302)" pointer-events="none">
-          <text x="0" y="6" fill="#8f5b1d" font-weight="700" font-size="11" text-anchor="middle">Nucleus Accumbens</text>
-          <text x="0" y="19" fill="#607274" font-size="9.5" font-weight="700" text-anchor="middle">Section C: Dependence</text>
-        </g>
-
-        <g transform="translate(385, 322)" pointer-events="none">
-          <text x="0" y="12" fill="#2c6b5a" font-weight="700" font-size="11" text-anchor="middle">Hippocampus</text>
-          <text x="0" y="25" fill="#607274" font-size="9.5" font-weight="700" text-anchor="middle">Section F: Study Decisions</text>
-        </g>
-
-        <text x="80" y="30" fill="#607274" font-size="11" font-weight="600">◀ FRONT OF BRAIN</text>
-        <text x="680" y="30" fill="#607274" font-size="11" font-weight="600" text-anchor="end">BACK OF BRAIN ▶</text>
-      </svg>
-    </div>
-  </div>
-
-  <div class="mapping-list">
-    <div class="mapping-item-card synced-active" data-sync="sec-b" style="border-left-color: #4f93b8;">
-      <div class="mapping-item-header">
-        <span class="mapping-sec-title">Section B: Everyday AI Usage</span>
-        <span class="color-pill-badge" style="background-color: #4f93b8;">● Parietal Cortex (Tool Use)</span>
-      </div>
-      <p class="mapping-desc">Measures how often students use AI as an everyday tool to write assignments, plan study schedules, and finish homework faster.</p>
-    </div>
-
-    <div class="mapping-item-card" data-sync="sec-c" style="border-left-color: #d99b52;">
-      <div class="mapping-item-header">
-        <span class="mapping-sec-title">Section C: Habit &amp; Comfort Reliance</span>
-        <span class="color-pill-badge" style="background-color: #d99b52;">● Nucleus Accumbens (Habit &amp; Relief)</span>
-      </div>
-      <p class="mapping-desc">Measures how much students feel they <em>need</em> AI to feel comfortable working, and whether they check AI before trying to think on their own.</p>
-    </div>
-
-    <div class="mapping-item-card" data-sync="sec-d" style="border-left-color: #d97b73;">
-      <div class="mapping-item-header">
-        <span class="mapping-sec-title">Section D: Trust &amp; Fact-Checking</span>
-        <span class="color-pill-badge" style="background-color: #d97b73;">● Anterior Cingulate (Error Detector)</span>
-      </div>
-      <p class="mapping-desc">Measures how much students trust AI answers and whether they double-check AI responses for mistakes before turning them in.</p>
-    </div>
-
-    <div class="mapping-item-card" data-sync="sec-e" style="border-left-color: #6c7ae0;">
-      <div class="mapping-item-header">
-        <span class="mapping-sec-title">Section E: Deep &amp; Critical Thinking</span>
-        <span class="color-pill-badge" style="background-color: #6c7ae0;">● Prefrontal Cortex (Deep Thinking)</span>
-      </div>
-      <p class="mapping-desc">Measures whether using AI causes students to analyze problems less, skip independent research, and do less deep thinking of their own.</p>
-    </div>
-
-    <div class="mapping-item-card" data-sync="sec-f" style="border-left-color: #4d9b86;">
-      <div class="mapping-item-header">
-        <span class="mapping-sec-title">Section F: Memory &amp; Study Decisions</span>
-        <span class="color-pill-badge" style="background-color: #4d9b86;">● Hippocampus (Memory &amp; Planning)</span>
-      </div>
-      <p class="mapping-desc">Measures how much students rely on AI to pick research topics, decide what to study next, and guide their academic choices.</p>
-    </div>
-  </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const syncEls = document.querySelectorAll("[data-sync]");
-  function activateSync(key) {
-    syncEls.forEach(el => {
-      if (el.getAttribute("data-sync") === key) {
-        el.classList.add("synced-active");
-      } else {
-        el.classList.remove("synced-active");
-      }
-    });
-  }
-  syncEls.forEach(el => {
-    const key = el.getAttribute("data-sync");
-    el.addEventListener("mouseenter", () => activateSync(key));
-    el.addEventListener("click", () => activateSync(key));
-  });
-});
-</script>
-<hr>
-</section>
-<section id="all-survey-questions-student-answers-sections-af" class="level2">
-<h2 class="anchored" data-anchor-id="all-survey-questions-student-answers-sections-af">3. All Survey Questions &amp; Student Answers (Sections A–F)</h2>
-<p>Click any tab below to read the exact questions asked in <strong>Sections A through F</strong> and see how the <strong>2,613 students</strong> answered each one:</p>
-<div class="chart-surface-card">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Section A: Student Background</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Section B: AI Usage</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Section C: Habit &amp; Reliance</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Section D: Trust in AI</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Section E: Critical Thinking</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false" href="">Section F: Study Decisions</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p><strong>Section A</strong> asked 5 basic background questions about each student:</p>
-<ol type="1">
-<li><strong>Gender</strong> (<em>Male or Female</em>)</li>
-<li><strong>Age</strong> (<em>From 18 to 28 years old</em>)</li>
-<li><strong>University Type</strong> (<em>Private University, Public University, or Other</em>)</li>
-<li><strong>Academic Level</strong> (<em>Undergraduate or Postgraduate</em>)</li>
-<li><strong>Major / Department</strong> (<em>Such as English, Computer Science (CSE), Business (BBA), Electrical Engineering (EEE), Economics, Law, Pharmacy, and Architecture</em>)</li>
-</ol>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p><strong>Section B (Parietal Cortex — Everyday Tool Use)</strong> asked how often students use AI for everyday school tasks (<em>Section Average: 3.80 / 5.00</em>):</p>
+<section id="demographics-summary" class="level2">
+<h2 class="anchored" data-anchor-id="demographics-summary">Demographics Summary</h2>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">Academic Level</span><span class="st">`</span>, <span class="st">`</span><span class="at">University Type</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Respondents =</span> <span class="fu">n</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Mean Age</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Female %</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(Gender <span class="sc">==</span> <span class="st">"Female"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 47%">
-<col style="width: 20%">
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">#</th>
-<th style="text-align: left;">Question Asked on the Survey</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% Who Agree</th>
-<th style="text-align: left;">% Neutral</th>
-<th style="text-align: left;">% Who Disagree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">I use generative AI tools regularly for academic purposes.</td>
-<td style="text-align: right;">3.91</td>
-<td style="text-align: left;">73%</td>
-<td style="text-align: left;">15%</td>
-<td style="text-align: left;">12%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">I use AI tools for assignment writing.</td>
-<td style="text-align: right;">3.86</td>
-<td style="text-align: left;">65.5%</td>
-<td style="text-align: left;">22.6%</td>
-<td style="text-align: left;">11.9%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">I use AI tools for study planning.</td>
-<td style="text-align: right;">3.75</td>
-<td style="text-align: left;">61.8%</td>
-<td style="text-align: left;">26.3%</td>
-<td style="text-align: left;">11.9%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">I use AI tools for research-related tasks.</td>
-<td style="text-align: right;">3.77</td>
-<td style="text-align: left;">65.4%</td>
-<td style="text-align: left;">22.5%</td>
-<td style="text-align: left;">12%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">I depend on AI tools to complete academic work faster.</td>
-<td style="text-align: right;">3.71</td>
-<td style="text-align: left;">62.3%</td>
-<td style="text-align: left;">18.1%</td>
-<td style="text-align: left;">19.6%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p><strong>Section C (Nucleus Accumbens — Habit &amp; Comfort Reliance)</strong> asked how much students depend on AI in their daily workflow (<em>Section Average: 3.63 / 5.00</em>):</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 50%">
-<col style="width: 19%">
-<col style="width: 9%">
-<col style="width: 7%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">#</th>
-<th style="text-align: left;">Question Asked on the Survey</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% Who Agree</th>
-<th style="text-align: left;">% Neutral</th>
-<th style="text-align: left;">% Who Disagree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">I feel uncomfortable completing academic tasks without AI tools.</td>
-<td style="text-align: right;">3.42</td>
-<td style="text-align: left;">57.3%</td>
-<td style="text-align: left;">14.7%</td>
-<td style="text-align: left;">28%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">I rely on AI before thinking independently.</td>
-<td style="text-align: right;">3.68</td>
-<td style="text-align: left;">57.9%</td>
-<td style="text-align: left;">22.8%</td>
-<td style="text-align: left;">19.3%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">AI tools have become essential to my academic workflow.</td>
-<td style="text-align: right;">3.72</td>
-<td style="text-align: left;">62.5%</td>
-<td style="text-align: left;">17.8%</td>
-<td style="text-align: left;">19.7%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">I use AI tools even for simple academic decisions.</td>
-<td style="text-align: right;">3.44</td>
-<td style="text-align: left;">54.2%</td>
-<td style="text-align: left;">22.3%</td>
-<td style="text-align: left;">23.5%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">I feel less confident working without AI assistance.</td>
-<td style="text-align: right;">3.51</td>
-<td style="text-align: left;">58.1%</td>
-<td style="text-align: left;">14.7%</td>
-<td style="text-align: left;">27.2%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Section D (Anterior Cingulate — Trust &amp; Fact-Checking)</strong> asked whether students trust AI answers or verify them first (<em>Section Average: 3.69 / 5.00</em>):</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 52%">
-<col style="width: 18%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">#</th>
-<th style="text-align: left;">Question Asked on the Survey</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% Who Agree</th>
-<th style="text-align: left;">% Neutral</th>
-<th style="text-align: left;">% Who Disagree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">I trust AI-generated academic responses.</td>
-<td style="text-align: right;">3.63</td>
-<td style="text-align: left;">57.5%</td>
-<td style="text-align: left;">23.2%</td>
-<td style="text-align: left;">19.4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">AI tools usually provide reliable information.</td>
-<td style="text-align: right;">3.83</td>
-<td style="text-align: left;">66.3%</td>
-<td style="text-align: left;">22.3%</td>
-<td style="text-align: left;">11.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">I rarely verify AI-generated answers before using them.</td>
-<td style="text-align: right;">3.51</td>
-<td style="text-align: left;">58.6%</td>
-<td style="text-align: left;">14.8%</td>
-<td style="text-align: left;">26.6%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">I believe AI tools make better academic suggestions than I can myself.</td>
-<td style="text-align: right;">3.55</td>
-<td style="text-align: left;">53.9%</td>
-<td style="text-align: left;">26.7%</td>
-<td style="text-align: left;">19.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">I trust AI recommendations for academic decision-making.</td>
-<td style="text-align: right;">3.68</td>
-<td style="text-align: left;">58.2%</td>
-<td style="text-align: left;">22.6%</td>
-<td style="text-align: left;">19.1%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
-<p><strong>Section E (Prefrontal Cortex — Deep Thinking)</strong> asked how AI affects students’ own analytical thinking and problem-solving (<em>Section Average: 3.75 / 5.00</em>):</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 47%">
-<col style="width: 20%">
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">#</th>
-<th style="text-align: left;">Question Asked on the Survey</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% Who Agree</th>
-<th style="text-align: left;">% Neutral</th>
-<th style="text-align: left;">% Who Disagree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Using AI tools reduces my need to think deeply.</td>
-<td style="text-align: right;">3.71</td>
-<td style="text-align: left;">64.3%</td>
-<td style="text-align: left;">19.2%</td>
-<td style="text-align: left;">16.5%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">I analyze less when using AI-generated responses.</td>
-<td style="text-align: right;">3.87</td>
-<td style="text-align: left;">70.7%</td>
-<td style="text-align: left;">17.4%</td>
-<td style="text-align: left;">11.9%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">I prefer AI explanations over conducting my own research.</td>
-<td style="text-align: right;">3.67</td>
-<td style="text-align: left;">57.3%</td>
-<td style="text-align: left;">23.3%</td>
-<td style="text-align: left;">19.4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">AI tools reduce my independent problem-solving efforts.</td>
-<td style="text-align: right;">3.76</td>
-<td style="text-align: left;">65.3%</td>
-<td style="text-align: left;">19%</td>
-<td style="text-align: left;">15.7%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">I rely more on AI-generated ideas than my own thinking.</td>
-<td style="text-align: right;">3.72</td>
-<td style="text-align: left;">66.2%</td>
-<td style="text-align: left;">14.5%</td>
-<td style="text-align: left;">19.3%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
-<p><strong>Section F (Hippocampus — Memory &amp; Study Planning)</strong> asked how much AI guides students’ topic choices and study plans (<em>Section Average: 3.77 / 5.00</em>):</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 2%">
-<col style="width: 49%">
-<col style="width: 19%">
-<col style="width: 9%">
-<col style="width: 7%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">#</th>
-<th style="text-align: left;">Question Asked on the Survey</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% Who Agree</th>
-<th style="text-align: left;">% Neutral</th>
-<th style="text-align: left;">% Who Disagree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">AI tools influence my academic decisions.</td>
-<td style="text-align: right;">3.66</td>
-<td style="text-align: left;">60.5%</td>
-<td style="text-align: left;">20.7%</td>
-<td style="text-align: left;">18.8%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">I use AI suggestions for study-related decisions.</td>
-<td style="text-align: right;">3.76</td>
-<td style="text-align: left;">61.7%</td>
-<td style="text-align: left;">27.1%</td>
-<td style="text-align: left;">11.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">AI tools help me choose research topics or project ideas.</td>
-<td style="text-align: right;">3.93</td>
-<td style="text-align: left;">66.1%</td>
-<td style="text-align: left;">22.8%</td>
-<td style="text-align: left;">11.1%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">I use AI recommendations to improve academic performance.</td>
-<td style="text-align: right;">3.71</td>
-<td style="text-align: left;">65.3%</td>
-<td style="text-align: left;">15.5%</td>
-<td style="text-align: left;">19.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">AI tools positively affect my academic decision-making process.</td>
-<td style="text-align: right;">3.67</td>
-<td style="text-align: left;">62.2%</td>
-<td style="text-align: left;">18.5%</td>
-<td style="text-align: left;">19.4%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-<section id="quick-summary-comparing-all-5-sections" class="level2">
-<h2 class="anchored" data-anchor-id="quick-summary-comparing-all-5-sections">4. Quick Summary Comparing All 5 Sections</h2>
-<p>Here is how all five sections rank from highest average score to lowest across all 2,613 students:</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 25%">
-<col style="width: 18%">
-<col style="width: 29%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Survey Section</th>
-<th style="text-align: left;">Matching Brain Area</th>
-<th style="text-align: right;">Average Score (out of 5)</th>
-<th style="text-align: left;">% of Students with High Reliance (≥ 3.5)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Section B: Everyday AI Usage</td>
-<td style="text-align: left;">Parietal Cortex (Tool Use)</td>
-<td style="text-align: right;">3.80</td>
-<td style="text-align: left;">68.3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Section F: Study &amp; Topic Decisions</td>
-<td style="text-align: left;">Hippocampus (Memory &amp; Planning)</td>
-<td style="text-align: right;">3.75</td>
-<td style="text-align: left;">69.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Section E: Reduced Critical Thinking</td>
-<td style="text-align: left;">Prefrontal Cortex (Deep Thinking)</td>
-<td style="text-align: right;">3.75</td>
-<td style="text-align: left;">68.9%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Section D: Trust Without Checking</td>
-<td style="text-align: left;">Anterior Cingulate (Fact-Checking)</td>
-<td style="text-align: right;">3.64</td>
-<td style="text-align: left;">61.7%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Section C: Habitual AI Dependence</td>
-<td style="text-align: left;">Nucleus Accumbens (Habit &amp; Relief)</td>
-<td style="text-align: right;">3.55</td>
-<td style="text-align: left;">60.1%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<hr>
-</section>
-<section id="who-took-the-survey-student-breakdown" class="level2">
-<h2 class="anchored" data-anchor-id="who-took-the-survey-student-breakdown">5. Who Took the Survey? (Student Breakdown)</h2>
-<div class="chart-surface-card">
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">By Degree Level &amp; University Type</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Younger Students (≤ 20) vs.&nbsp;Older Students (&gt; 20)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">By College Major / Department</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 18%">
-<col style="width: 12%">
-<col style="width: 9%">
-<col style="width: 7%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Academic Level</th>
 <th style="text-align: left;">University Type</th>
-<th style="text-align: right;">Number of Students</th>
-<th style="text-align: left;">% of Total Sample</th>
-<th style="text-align: right;">Average Age</th>
-<th style="text-align: left;">Female %</th>
-<th style="text-align: left;">Male %</th>
+<th style="text-align: right;">Respondents</th>
+<th style="text-align: right;">Mean Age</th>
+<th style="text-align: right;">Female %</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Undergraduate</td>
-<td style="text-align: left;">Private University</td>
-<td style="text-align: right;">933</td>
-<td style="text-align: left;">35.7%</td>
-<td style="text-align: right;">22.2</td>
-<td style="text-align: left;">27.7%</td>
-<td style="text-align: left;">72.3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Undergraduate</td>
-<td style="text-align: left;">Public University</td>
-<td style="text-align: right;">650</td>
-<td style="text-align: left;">24.9%</td>
-<td style="text-align: right;">23.0</td>
-<td style="text-align: left;">42.6%</td>
-<td style="text-align: left;">57.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Postgraduate</td>
-<td style="text-align: left;">Public University</td>
-<td style="text-align: right;">514</td>
-<td style="text-align: left;">19.7%</td>
-<td style="text-align: right;">22.7</td>
-<td style="text-align: left;">51%</td>
-<td style="text-align: left;">49%</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">Postgraduate</td>
 <td style="text-align: left;">Private University</td>
 <td style="text-align: right;">512</td>
-<td style="text-align: left;">19.6%</td>
 <td style="text-align: right;">22.8</td>
-<td style="text-align: left;">51.4%</td>
-<td style="text-align: left;">48.6%</td>
+<td style="text-align: right;">51.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Postgraduate</td>
+<td style="text-align: left;">Public University</td>
+<td style="text-align: right;">514</td>
+<td style="text-align: right;">22.7</td>
+<td style="text-align: right;">51.0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Undergraduate</td>
 <td style="text-align: left;">Other</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: left;">0.2%</td>
 <td style="text-align: right;">25.5</td>
-<td style="text-align: left;">50%</td>
-<td style="text-align: left;">50%</td>
+<td style="text-align: right;">50.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Undergraduate</td>
+<td style="text-align: left;">Private University</td>
+<td style="text-align: right;">933</td>
+<td style="text-align: right;">22.2</td>
+<td style="text-align: right;">27.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Undergraduate</td>
+<td style="text-align: left;">Public University</td>
+<td style="text-align: right;">650</td>
+<td style="text-align: right;">23.0</td>
+<td style="text-align: right;">42.6</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+</section>
+<section id="the-5-brain-regions-cognitive-constructs" class="level2">
+<h2 class="anchored" data-anchor-id="the-5-brain-regions-cognitive-constructs">The 5 Brain Regions &amp; Cognitive Constructs</h2>
+<p>The survey measures 25 Likert questions across 5 dimensions, which are mapped to functional brain systems:</p>
+<table class="caption-top table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 24%">
-<col style="width: 19%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Age Group</th>
-<th style="text-align: right;">Number of Students</th>
-<th style="text-align: left;">% of Total Sample</th>
-<th style="text-align: right;">Average Age</th>
-<th style="text-align: right;">Deep Thinking Offloading (out of 5)</th>
-<th style="text-align: right;">Habitual Reliance (out of 5)</th>
+<th style="text-align: left;">Brain Region</th>
+<th style="text-align: left;">Color</th>
+<th style="text-align: left;">Cognitive Dimension</th>
+<th style="text-align: left;">Exemplar Survey Item</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Older Students (Age 21 &amp; Over)</td>
-<td style="text-align: right;">1832</td>
-<td style="text-align: left;">70.1%</td>
-<td style="text-align: right;">24.0</td>
-<td style="text-align: right;">3.70</td>
-<td style="text-align: right;">3.70</td>
+<td style="text-align: left;"><strong>Prefrontal Cortex (PFC)</strong></td>
+<td style="text-align: left;"><code>#8b5cf6</code> (Purple)</td>
+<td style="text-align: left;">Critical Thinking</td>
+<td style="text-align: left;"><em>Using AI tools reduces my need to think deeply.</em></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Younger Students (Age 20 &amp; Under)</td>
-<td style="text-align: right;">781</td>
-<td style="text-align: left;">29.9%</td>
-<td style="text-align: right;">19.3</td>
-<td style="text-align: right;">3.86</td>
-<td style="text-align: right;">3.22</td>
+<td style="text-align: left;"><strong>Hippocampus</strong></td>
+<td style="text-align: left;"><code>#10b981</code> (Green)</td>
+<td style="text-align: left;">Academic Decision-Making</td>
+<td style="text-align: left;"><em>AI tools help me choose research topics or project ideas.</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Anterior Cingulate Cortex (ACC)</strong></td>
+<td style="text-align: left;"><code>#f43f5e</code> (Red)</td>
+<td style="text-align: left;">Trust in AI &amp; Verification</td>
+<td style="text-align: left;"><em>I rarely verify AI-generated answers before using them.</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Nucleus Accumbens</strong></td>
+<td style="text-align: left;"><code>#f59e0b</code> (Amber)</td>
+<td style="text-align: left;">Cognitive Dependence</td>
+<td style="text-align: left;"><em>I feel uncomfortable completing academic tasks without AI tools.</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Parietal Cortex</strong></td>
+<td style="text-align: left;"><code>#0ea5e9</code> (Cyan)</td>
+<td style="text-align: left;">AI Usage &amp; Task Execution</td>
+<td style="text-align: left;"><em>I depend on AI tools to complete academic work faster.</em></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+</section>
+<section id="tidyverse-analysis-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="tidyverse-analysis-pipeline">Tidyverse Analysis Pipeline</h2>
+<p>Here is an example tidyverse pipeline calculating the cognitive dependence index:</p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>scale_map <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Strongly Disagree"</span> <span class="ot">=</span> <span class="dv">1</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Disagree"</span> <span class="ot">=</span> <span class="dv">2</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Neutral"</span> <span class="ot">=</span> <span class="dv">3</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Agree"</span> <span class="ot">=</span> <span class="dv">4</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Strongly Agree"</span> <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify cognitive dependence questions</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>dep_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(df)[<span class="fu">str_starts</span>(<span class="fu">names</span>(df), <span class="st">"Cognitive Dependence"</span>)]</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute student-level average dependence score</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>df_scored <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(dep_cols), \(x) scale_map[x])) <span class="sc">|&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dependence_score =</span> <span class="fu">rowMeans</span>(<span class="fu">across</span>(<span class="fu">all_of</span>(dep_cols)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>df_scored <span class="sc">|&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean_Dependence =</span> <span class="fu">round</span>(<span class="fu">mean</span>(dependence_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(dependence_score, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">Pct_High_Dependence =</span> <span class="fu">round</span>(<span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(dependence_score <span class="sc">&gt;=</span> <span class="fl">3.5</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 18%">
-<col style="width: 17%">
-<col style="width: 11%">
-<col style="width: 15%">
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Department/Discipline</th>
-<th style="text-align: right;">Number of Students</th>
-<th style="text-align: left;">% of Total Sample</th>
-<th style="text-align: right;">Average Age</th>
-<th style="text-align: left;">Undergraduate %</th>
+<th style="text-align: right;">Mean_Dependence</th>
+<th style="text-align: right;">SD</th>
+<th style="text-align: right;">Pct_High_Dependence</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">English</td>
-<td style="text-align: right;">394</td>
-<td style="text-align: left;">15.1%</td>
-<td style="text-align: right;">21.2</td>
-<td style="text-align: left;">79.7%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CSE</td>
-<td style="text-align: right;">289</td>
-<td style="text-align: left;">11.1%</td>
-<td style="text-align: right;">23.2</td>
-<td style="text-align: left;">50.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">BBA</td>
-<td style="text-align: right;">235</td>
-<td style="text-align: left;">9%</td>
-<td style="text-align: right;">22.5</td>
-<td style="text-align: left;">75.3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">EEE</td>
-<td style="text-align: right;">222</td>
-<td style="text-align: left;">8.5%</td>
-<td style="text-align: right;">22.9</td>
-<td style="text-align: left;">47.7%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Economics</td>
-<td style="text-align: right;">215</td>
-<td style="text-align: left;">8.2%</td>
-<td style="text-align: right;">23.1</td>
-<td style="text-align: left;">61.9%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Law</td>
-<td style="text-align: right;">204</td>
-<td style="text-align: left;">7.8%</td>
-<td style="text-align: right;">23.2</td>
-<td style="text-align: left;">67.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Pharmacy</td>
-<td style="text-align: right;">175</td>
-<td style="text-align: left;">6.7%</td>
-<td style="text-align: right;">23.0</td>
-<td style="text-align: left;">53.7%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Architecture</td>
-<td style="text-align: right;">168</td>
-<td style="text-align: left;">6.4%</td>
-<td style="text-align: right;">22.4</td>
-<td style="text-align: left;">48.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mathematics</td>
-<td style="text-align: right;">163</td>
-<td style="text-align: left;">6.2%</td>
-<td style="text-align: right;">22.9</td>
-<td style="text-align: left;">51.5%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Civil Engineering</td>
-<td style="text-align: right;">152</td>
-<td style="text-align: left;">5.8%</td>
-<td style="text-align: right;">22.7</td>
-<td style="text-align: left;">57.9%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Software Engineering</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: left;">1.9%</td>
-<td style="text-align: right;">21.7</td>
-<td style="text-align: left;">60%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Journalism and Media Studies</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">0.7%</td>
-<td style="text-align: right;">22.8</td>
-<td style="text-align: left;">55.6%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Physics</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">0.7%</td>
-<td style="text-align: right;">24.1</td>
-<td style="text-align: left;">55.6%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sociology</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: left;">0.7%</td>
-<td style="text-align: right;">22.1</td>
-<td style="text-align: left;">29.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Accounting</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">23.2</td>
-<td style="text-align: left;">43.8%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Finance</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">22.6</td>
-<td style="text-align: left;">62.5%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Human Resource Management</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">22.1</td>
-<td style="text-align: left;">56.2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Information Technology</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">22.9</td>
-<td style="text-align: left;">56.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mass Communication</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">22.1</td>
-<td style="text-align: left;">81.2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Psychology</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">21.9</td>
-<td style="text-align: left;">56.2%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Chemical Engineering</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">22.5</td>
-<td style="text-align: left;">53.3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Chemistry</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">23.2</td>
-<td style="text-align: left;">60%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">International Business</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">23.0</td>
-<td style="text-align: left;">40%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Management</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">0.6%</td>
-<td style="text-align: right;">21.5</td>
-<td style="text-align: left;">60%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Computer Science and Engineering</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">22.3</td>
-<td style="text-align: left;">71.4%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Marketing</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">24.5</td>
-<td style="text-align: left;">71.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Statistics</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">22.5</td>
-<td style="text-align: left;">50%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Textile Engineering</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">22.4</td>
-<td style="text-align: left;">71.4%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Environmental Science</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">24.2</td>
-<td style="text-align: left;">61.5%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Industrial and Production Engineering</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">22.7</td>
-<td style="text-align: left;">61.5%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mechanical Engineering</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">21.8</td>
-<td style="text-align: left;">53.8%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Development Studies</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">0.5%</td>
-<td style="text-align: right;">21.6</td>
-<td style="text-align: left;">58.3%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Electrical and Electronic Engineering</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">0.4%</td>
-<td style="text-align: right;">23.5</td>
-<td style="text-align: left;">80%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Political Science</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">0.4%</td>
-<td style="text-align: right;">22.6</td>
-<td style="text-align: left;">40%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Public Administration</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">0.4%</td>
-<td style="text-align: right;">24.0</td>
-<td style="text-align: left;">50%</td>
+<td style="text-align: right;">3.55</td>
+<td style="text-align: right;">0.87</td>
+<td style="text-align: right;">60.1</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
