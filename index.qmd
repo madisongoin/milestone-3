@@ -42,6 +42,92 @@ cols <- names(df)
 </div>
 
 <div class="hero-editorial-grid">
+  <!-- Oversized Luminous Anatomical Brain Watermark -->
+  <div class="hero-brain-watermark" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" fill="none">
+      <defs>
+        <radialGradient id="glass-brain-glow" cx="48%" cy="46%" r="50%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.58"/>
+          <stop offset="55%" stop-color="#FAF8F4" stop-opacity="0.28"/>
+          <stop offset="100%" stop-color="#E9E4D9" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="ivory-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.92"/>
+          <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.72"/>
+          <stop offset="100%" stop-color="#B69A78" stop-opacity="0.22"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Soft Luminous Glass Aura -->
+      <ellipse cx="535" cy="360" rx="465" ry="325" fill="url(#glass-brain-glow)"/>
+
+      <!-- Delicate Outer Measurement Halo -->
+      <circle cx="535" cy="360" r="340" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="1" stroke-dasharray="4,8"/>
+      <circle cx="535" cy="360" r="295" stroke="#B69A78" stroke-opacity="0.14" stroke-width="0.8"/>
+
+      <!-- Primary Oversized Cortical Silhouette (Glass Ivory Fill + Crisp White Line Art) -->
+      <path d="M 175,388 C 142,308 168,205 245,146 C 322,86 438,62 568,72 C 698,82 812,138 862,235 C 898,308 882,395 822,452 C 845,492 832,554 772,578 C 708,602 648,568 630,518 C 595,532 565,588 558,645 L 495,645 C 495,558 472,498 422,468 C 338,480 268,452 232,398 C 198,402 182,398 175,388 Z"
+            fill="#FFFFFF" fill-opacity="0.26" stroke="url(#ivory-line-grad)" stroke-width="2.2"/>
+
+      <!-- Secondary Whisper Shadow Contour for Glass Depth -->
+      <path d="M 179,391 C 146,311 172,208 249,149 C 326,89 442,65 572,75 C 702,85 816,141 866,238 C 902,311 886,398 826,455"
+            stroke="#17283D" stroke-opacity="0.07" stroke-width="1.1"/>
+
+      <!-- Corpus Callosum & Limbic Arch (Luminous Glass Layer) -->
+      <path d="M 358,362 C 342,292 398,238 498,232 C 598,228 672,268 688,338 C 645,318 592,272 496,272 C 412,272 378,322 358,362 Z"
+            fill="#FFFFFF" fill-opacity="0.34" stroke="#FFFFFF" stroke-opacity="0.88" stroke-width="1.8"/>
+      <path d="M 385,368 C 425,398 512,402 588,358 C 618,340 605,312 572,328 C 518,356 445,362 385,368 Z"
+            fill="#FFFFFF" fill-opacity="0.22" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="1.4"/>
+
+      <!-- Intricate Cortical Gyri & Sulci Line Art (Frontal & Prefrontal Lobe) -->
+      <g stroke="#FFFFFF" stroke-opacity="0.78" stroke-width="1.5" stroke-linecap="round">
+        <path d="M 192,332 C 245,315 288,278 322,222 C 345,184 352,135 348,96"/>
+        <path d="M 218,248 C 272,258 318,232 365,178 C 398,140 418,102 425,74"/>
+        <path d="M 268,168 C 312,188 368,175 415,135"/>
+        <path d="M 235,382 C 288,368 325,342 358,308"/>
+        <path d="M 285,432 C 325,402 355,382 398,378"/>
+      </g>
+
+      <!-- Intricate Cortical Gyri & Sulci Line Art (Parietal, Temporal & Occipital Lobes) -->
+      <g stroke="#FFFFFF" stroke-opacity="0.76" stroke-width="1.5" stroke-linecap="round">
+        <path d="M 482,72 C 478,132 502,185 552,222"/>
+        <path d="M 578,78 C 562,142 595,195 658,228 C 712,256 768,248 825,215"/>
+        <path d="M 678,108 C 668,162 708,202 775,212"/>
+        <path d="M 688,288 C 742,278 798,298 852,278"/>
+        <path d="M 665,348 C 728,332 785,362 848,342"/>
+        <path d="M 435,442 C 492,418 565,412 638,438 C 702,460 765,445 812,412"/>
+        <path d="M 465,402 C 522,385 588,388 648,408"/>
+      </g>
+
+      <!-- Delicate Cerebellar Folia (Arbor Vitae Engraving) -->
+      <g stroke="#FFFFFF" stroke-opacity="0.72" stroke-width="1.3" stroke-linecap="round">
+        <path d="M 642,485 C 695,468 768,475 812,512"/>
+        <path d="M 648,508 C 702,492 765,502 805,534"/>
+        <path d="M 658,532 C 708,518 758,528 792,554"/>
+        <path d="M 675,555 C 715,546 748,552 772,568"/>
+      </g>
+
+      <!-- Fine White-Matter Tractography & Neural Filaments -->
+      <g stroke="#B69A78" stroke-opacity="0.16" stroke-width="1" stroke-dasharray="2,4">
+        <path d="M 255,285 Q 415,245 498,325"/>
+        <path d="M 335,175 Q 465,225 515,325"/>
+        <path d="M 525,135 Q 535,245 520,325"/>
+        <path d="M 695,185 Q 595,265 535,325"/>
+        <path d="M 765,325 Q 645,335 535,335"/>
+      </g>
+
+      <!-- Luminous Synaptic Nodes -->
+      <g fill="#FFFFFF" fill-opacity="0.85">
+        <circle cx="255" cy="285" r="3.5"/>
+        <circle cx="335" cy="175" r="3.5"/>
+        <circle cx="525" cy="135" r="3.5"/>
+        <circle cx="695" cy="185" r="3.5"/>
+        <circle cx="765" cy="325" r="3.5"/>
+        <circle cx="518" cy="328" r="4.5"/>
+      </g>
+    </svg>
+  </div>
+
   <div>
     <div class="pub-title">THE THINKING GENERATION</div>
     <div class="pub-subtitle">THE HUMAN BRAIN IN THE AGE OF ARTIFICIAL INTELLIGENCE</div>
@@ -56,54 +142,118 @@ cols <- names(df)
 
   <div>
     <div class="hero-art-frame">
-      <!-- Sophisticated Fine-Line Anatomical & Cortical Engraving -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 390" width="100%" role="img" aria-label="Fine-Line Cortical Plate">
+      <!-- Clean, Natural Brain Silhouette with Top/Bottom Non-Clipped Labels -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 410" width="100%" role="img" aria-label="Anatomical Brain Diagram">
         <rect width="100%" height="100%" fill="#F2EFE9"/>
-        <!-- Architectural Grid Lines -->
-        <line x1="25" y1="25" x2="435" y2="25" stroke="#17283D" stroke-opacity="0.18" stroke-width="0.75"/>
-        <line x1="25" y1="365" x2="435" y2="365" stroke="#17283D" stroke-opacity="0.18" stroke-width="0.75"/>
-        <line x1="230" y1="25" x2="230" y2="365" stroke="#17283D" stroke-opacity="0.12" stroke-dasharray="3,4" stroke-width="0.75"/>
-        <line x1="25" y1="195" x2="435" y2="195" stroke="#17283D" stroke-opacity="0.12" stroke-dasharray="3,4" stroke-width="0.75"/>
 
-        <!-- Concentric Measurement Rings -->
-        <circle cx="230" cy="195" r="142" fill="none" stroke="#B69A78" stroke-opacity="0.45" stroke-width="0.9"/>
-        <circle cx="230" cy="195" r="112" fill="none" stroke="#A6A99B" stroke-opacity="0.45" stroke-dasharray="2,3" stroke-width="0.9"/>
+        <!-- Outer Frame -->
+        <rect x="16" y="16" width="488" height="378" fill="none" stroke="#17283D" stroke-opacity="0.16" stroke-width="0.75"/>
 
-        <!-- Fine-Line Sagittal Cortical Contour -->
-        <path d="M 92,205 C 78,165 92,115 130,86 C 168,56 225,46 285,54 C 345,62 388,98 398,148 C 406,188 392,232 360,256 C 370,278 362,306 334,316 C 304,324 278,304 270,280 C 254,288 242,315 240,340 L 214,340 C 214,300 202,272 178,258 C 142,262 115,244 92,205 Z"
-              fill="#E9E4D9" stroke="#17283D" stroke-width="1.6"/>
+        <!-- Top Plate Header -->
+        <text x="32" y="36" fill="#17283D" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.4" font-weight="600">FIG. 01 — HUMAN ENCEPHALON</text>
+        <text x="488" y="36" fill="#B69A78" font-family="Inter, sans-serif" font-size="7.5" letter-spacing="1.4" text-anchor="end">ANATOMICAL PROJECTION</text>
+        <line x1="32" y1="45" x2="488" y2="45" stroke="#17283D" stroke-opacity="0.12" stroke-width="0.75"/>
 
-        <!-- Internal Sulci & White-Matter Tractography Lines -->
-        <path d="M 112,175 C 148,162 175,135 198,98" fill="none" stroke="#17283D" stroke-width="1" stroke-opacity="0.65"/>
-        <path d="M 135,118 C 175,128 215,112 252,72" fill="none" stroke="#17283D" stroke-width="1" stroke-opacity="0.65"/>
-        <path d="M 235,62 C 248,112 275,142 325,152" fill="none" stroke="#17283D" stroke-width="1" stroke-opacity="0.65"/>
-        <path d="M 285,110 C 320,128 355,120 382,138" fill="none" stroke="#17283D" stroke-width="1" stroke-opacity="0.65"/>
-        <path d="M 162,222 C 195,198 245,196 295,218 C 330,232 355,225 378,205" fill="none" stroke="#17283D" stroke-width="1" stroke-opacity="0.65"/>
+        <!-- 1. BRAINSTEM (Cleanly Tucked Between Temporal Lobe & Cerebellum) -->
+        <path d="M 256,256
+                 C 252,280 256,304 264,328
+                 L 292,328
+                 C 288,306 288,282 296,262
+                 Z"
+              fill="#DFD8CA" stroke="#17283D" stroke-width="1.4" stroke-linejoin="round"/>
 
-        <!-- Limbic / Corpus Callosum Engraving -->
-        <path d="M 168,195 C 162,162 192,138 240,136 C 288,136 318,158 322,188 C 300,178 275,156 238,156 C 198,156 178,176 168,195 Z"
-              fill="#B69A78" fill-opacity="0.28" stroke="#17283D" stroke-width="1.2"/>
-
-        <!-- Synaptic Node Coordinates -->
-        <g stroke="#17283D" stroke-width="1">
-          <line x1="145" y1="145" x2="215" y2="165" stroke="#B69A78" stroke-width="1.1"/>
-          <line x1="215" y1="165" x2="278" y2="145" stroke="#B69A78" stroke-width="1.1"/>
-          <line x1="215" y1="165" x2="255" y2="215" stroke="#B69A78" stroke-width="1.1"/>
-          <circle cx="145" cy="145" r="4" fill="#17283D"/>
-          <circle cx="215" cy="165" r="4" fill="#B69A78"/>
-          <circle cx="278" cy="145" r="4" fill="#17283D"/>
-          <circle cx="255" cy="215" r="4" fill="#A6A99B"/>
+        <!-- 2. CEREBELLUM (Nestled Under the Occipital Lobe) -->
+        <path d="M 300,242
+                 C 334,238 374,244 388,264
+                 C 398,280 386,300 360,306
+                 C 332,312 302,300 294,280
+                 C 290,268 293,252 300,242 Z"
+              fill="#E3DDD0" stroke="#17283D" stroke-width="1.4" stroke-linejoin="round"/>
+        <!-- Clean Cerebellar Folia Striations -->
+        <g stroke="#17283D" stroke-opacity="0.42" stroke-width="0.85" fill="none" stroke-linecap="round">
+          <path d="M 306,258 C 336,254 366,258 384,270"/>
+          <path d="M 300,272 C 334,268 368,272 386,284"/>
+          <path d="M 302,286 C 332,282 362,286 376,296"/>
         </g>
 
-        <!-- Plate Annotations -->
-        <text x="35" y="44" fill="#17283D" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.5">FIG. 01 — CORTICAL PLASTICITY</text>
-        <text x="425" y="44" fill="#B69A78" font-family="Inter, sans-serif" font-size="8" letter-spacing="1.5" text-anchor="end">SAGITTAL SECTION</text>
-        <text x="145" y="133" fill="#17283D" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" text-anchor="middle">Prefrontal Executive</text>
-        <text x="278" y="133" fill="#17283D" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" text-anchor="middle">Parietal Association</text>
-        <text x="255" y="234" fill="#17283D" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" text-anchor="middle">Hippocampal Formation</text>
+        <!-- 3. CEREBRUM (Natural Frontal, Parietal, Occipital & Temporal Silhouette) -->
+        <path d="M 114,195
+                 C 108,155 138,112 192,94
+                 C 248,76  316,80  364,110
+                 C 400,132 414,168 404,204
+                 C 396,230 366,242 330,244
+                 C 295,246 262,264 222,264
+                 C 190,264 172,250 178,230
+                 C 150,230 122,218 114,195 Z"
+              fill="#EAE4D8" stroke="#17283D" stroke-width="1.75" stroke-linejoin="round"/>
+
+        <!-- Subtle Prefrontal Executive Highlight -->
+        <path d="M 114,195 C 108,155 138,112 192,94 C 204,132 196,174 178,230 C 150,230 122,218 114,195 Z"
+              fill="#17283D" fill-opacity="0.07"/>
+
+        <!-- 4. CORPUS CALLOSUM (Smooth C-Shaped Central Arch) -->
+        <path d="M 168,192
+                 C 160,164 188,138 238,134
+                 C 286,130 326,148 336,176
+                 C 318,168 288,152 240,154
+                 C 198,156 178,174 168,192 Z"
+              fill="#B69A78" fill-opacity="0.4" stroke="#17283D" stroke-width="1.25" stroke-linejoin="round"/>
+
+        <!-- 5. NATURAL CORTICAL SULCI & GYRI CONTOURS -->
+        <g fill="none" stroke="#17283D" stroke-opacity="0.6" stroke-width="1.1" stroke-linecap="round">
+          <!-- Lateral (Sylvian) Fissure defining the Temporal Lobe -->
+          <path d="M 178,230 C 216,216 258,200 296,184"/>
+          <!-- Central Sulcus -->
+          <path d="M 264,84 C 258,108 248,124 238,134"/>
+          <!-- Frontal Sulci -->
+          <path d="M 126,166 C 152,160 174,146 188,126"/>
+          <path d="M 152,126 C 180,118 212,112 242,116"/>
+          <!-- Parieto-Occipital & Calcarine Sulci -->
+          <path d="M 366,114 C 350,138 336,156 324,168"/>
+          <path d="M 344,204 C 368,200 388,204 402,208"/>
+          <!-- Superior Temporal Sulcus -->
+          <path d="M 196,246 C 232,242 268,230 298,216"/>
+        </g>
+
+        <!-- 6. FOUR WELL-SPACED CALLOUT LABELS (Centered in Top & Bottom Bands — Zero Cutoff) -->
+        <g stroke="#17283D" stroke-width="0.8" stroke-opacity="0.55" fill="none">
+          <!-- Top-Left: Prefrontal Cortex -->
+          <line x1="158" y1="138" x2="158" y2="76"/>
+          <circle cx="158" cy="138" r="2.2" fill="#17283D"/>
+
+          <!-- Top-Right: Parietal & Occipital Cortex -->
+          <line x1="336" y1="118" x2="336" y2="76"/>
+          <circle cx="336" cy="118" r="2.2" fill="#17283D"/>
+
+          <!-- Bottom-Left: Temporal Lobe & Hippocampus -->
+          <line x1="216" y1="242" x2="165" y2="346"/>
+          <circle cx="216" cy="242" r="2.2" fill="#17283D"/>
+
+          <!-- Bottom-Right: Cerebellum & Brainstem -->
+          <line x1="348" y1="286" x2="365" y2="346"/>
+          <circle cx="348" cy="286" r="2.2" fill="#17283D"/>
+        </g>
+
+        <g text-anchor="middle" fill="#17283D">
+          <!-- Top-Left Label (Centered at x = 158) -->
+          <text x="158" y="62" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-weight="600">Prefrontal Cortex</text>
+          <text x="158" y="72" font-family="Inter, sans-serif" font-size="7" font-weight="500" letter-spacing="0.9" fill="#B69A78">EXECUTIVE REASONING</text>
+
+          <!-- Top-Right Label (Centered at x = 342) -->
+          <text x="342" y="62" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-weight="600">Parietal &amp; Corpus Callosum</text>
+          <text x="342" y="72" font-family="Inter, sans-serif" font-size="7" font-weight="500" letter-spacing="0.9" fill="#B69A78">CORTICAL INTEGRATION</text>
+
+          <!-- Bottom-Left Label (Centered at x = 165) -->
+          <text x="165" y="362" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-weight="600">Temporal &amp; Limbic Core</text>
+          <text x="165" y="373" font-family="Inter, sans-serif" font-size="7" font-weight="500" letter-spacing="0.9" fill="#B69A78">MEMORY &amp; RECALL</text>
+
+          <!-- Bottom-Right Label (Centered at x = 365) -->
+          <text x="365" y="362" font-family="Cormorant Garamond, Georgia, serif" font-size="13" font-weight="600">Cerebellum &amp; Brainstem</text>
+          <text x="365" y="373" font-family="Inter, sans-serif" font-size="7" font-weight="500" letter-spacing="0.9" fill="#B69A78">MOTOR &amp; AUTONOMIC</text>
+        </g>
       </svg>
       <div class="hero-art-caption">
-        <span>Plate I. Adolescent Cortical Networks</span>
+        <span>Plate I. Median Sagittal Encephalon</span>
         <span>Archive No. 2613-BD</span>
       </div>
     </div>
@@ -261,94 +411,129 @@ cols <- names(df)
     </div>
 
     <div class="brain-svg-wrapper">
-      <svg class="brain-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" role="img" aria-label="Interactive Brain Diagram">
+      <svg class="brain-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 540" role="img" aria-label="Interactive Brain Diagram">
         <rect width="100%" height="100%" fill="#E9E4D9"/>
 
-        <!-- Fine Editorial Coordinate Grid -->
-        <line x1="60" y1="250" x2="700" y2="250" stroke="#17283D" stroke-opacity="0.15" stroke-dasharray="3,4" stroke-width="1"/>
-        <line x1="360" y1="35" x2="360" y2="465" stroke="#17283D" stroke-opacity="0.15" stroke-dasharray="3,4" stroke-width="1"/>
-        <circle cx="360" cy="250" r="195" fill="none" stroke="#B69A78" stroke-opacity="0.3" stroke-width="1"/>
+        <!-- Top Orientation Header -->
+        <text x="45" y="28" fill="#17283D" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1.5" font-weight="600">ANTERIOR (FRONT)</text>
+        <text x="715" y="28" fill="#17283D" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1.5" font-weight="600" text-anchor="end">POSTERIOR (BACK)</text>
+        <line x1="45" y1="36" x2="715" y2="36" stroke="#17283D" stroke-opacity="0.12" stroke-width="0.8"/>
 
-        <!-- Outer Cortical Silhouette -->
-        <path d="M 110,245 C 95,205 105,150 145,110 C 185,70 250,50 350,50 C 450,50 540,75 610,135 C 665,185 675,250 645,305 C 630,335 595,355 565,360 C 585,385 580,425 540,445 C 490,460 445,435 435,395 C 410,400 380,440 375,470 L 335,470 C 335,410 320,370 290,350 C 235,360 190,340 165,305 C 130,305 115,275 110,245 Z"
-              fill="#F2EFE9" stroke="#17283D" stroke-width="2"/>
+        <!-- Subtle Editorial Coordinate Reference -->
+        <line x1="50" y1="265" x2="710" y2="265" stroke="#17283D" stroke-opacity="0.08" stroke-dasharray="3,5" stroke-width="1"/>
+        <line x1="380" y1="90" x2="380" y2="455" stroke="#17283D" stroke-opacity="0.08" stroke-dasharray="3,5" stroke-width="1"/>
 
-        <!-- Occipital Lobe (Context) -->
-        <path d="M 540,140 C 590,175 650,215 645,305 C 610,340 550,345 510,310 C 495,240 515,180 540,140 Z"
-              fill="#E2DDD2" stroke="#17283D" stroke-opacity="0.4" stroke-width="1.2"/>
-        <text x="588" y="242" fill="#30343B" font-family="Cormorant Garamond, serif" font-size="13" font-style="italic" text-anchor="middle">Occipital Lobe</text>
+        <!-- Brain Geometry Group (Shifted +22px vertically so top & bottom margins are completely clear for exterior labels) -->
+        <g transform="translate(0, 22)">
+          <!-- Brainstem (Tucked Cleanly Below Center) -->
+          <path d="M 350,336 C 340,354 340,382 348,410 L 354,435 L 388,435 C 386,406 386,376 396,346 Z"
+                fill="#DFD8CA" stroke="#17283D" stroke-opacity="0.55" stroke-width="1.4"/>
 
-        <!-- Cerebellum (Context) -->
-        <path d="M 455,360 C 495,345 565,350 580,395 C 570,440 515,458 450,432 C 435,395 438,370 455,360 Z"
-              fill="#E2DDD2" stroke="#17283D" stroke-opacity="0.45" stroke-width="1.2" stroke-dasharray="3,3"/>
-        <text x="522" y="405" fill="#30343B" font-family="Cormorant Garamond, serif" font-size="13" font-style="italic" text-anchor="middle">Cerebellum</text>
+          <!-- Cerebellum (Realistic Hindbrain Nestled Under Occipital Lobe) -->
+          <path d="M 412,332 C 455,320 518,326 552,354 C 574,374 574,406 546,424 C 514,444 460,440 424,416 C 404,402 398,376 402,352 Z"
+                fill="#E2DDD2" stroke="#17283D" stroke-opacity="0.55" stroke-width="1.4"/>
+          <g stroke="#17283D" stroke-opacity="0.32" stroke-width="1" fill="none">
+            <path d="M 424,352 C 468,344 518,352 550,372"/>
+            <path d="M 416,372 C 466,364 520,372 556,392"/>
+            <path d="M 418,392 C 466,386 514,394 546,410"/>
+          </g>
 
-        <!-- Brainstem (Context) -->
-        <path d="M 345,360 C 370,365 385,385 390,420 L 375,470 L 335,470 Z"
-              fill="#E2DDD2" stroke="#17283D" stroke-opacity="0.45" stroke-width="1.2"/>
-        <text x="355" y="445" fill="#30343B" font-family="Cormorant Garamond, serif" font-size="11" font-style="italic" text-anchor="middle">Brainstem</text>
+          <!-- Outer Cortical Silhouette (Smooth, Natural Frontal, Parietal, Occipital & Temporal Contour) -->
+          <path d="M 125,255
+                   C 115,198 156,112 252,72
+                   C 348,38  468,46  548,96
+                   C 604,132 628,188 614,244
+                   C 602,286 558,318 498,324
+                   C 442,330 392,356 328,356
+                   C 272,356 238,334 244,298
+                   C 192,298 142,284 125,255 Z"
+                fill="#F2EFE9" stroke="#17283D" stroke-width="2" stroke-linejoin="round"/>
 
-        <!-- Corpus Callosum Arch (Context) -->
-        <path d="M 245,235 C 230,195 260,165 320,160 C 385,160 435,185 445,225 C 420,215 380,185 320,185 C 265,185 245,215 245,235 Z"
-              fill="#D8D2C5" stroke="#17283D" stroke-opacity="0.5" stroke-width="1.2"/>
-        <text x="330" y="180" fill="#17283D" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="0.8" text-anchor="middle">CORPUS CALLOSUM</text>
+          <!-- Occipital Lobe (Posterior Visual Context) -->
+          <path d="M 548,96 C 604,132 628,188 614,244 C 602,286 558,318 498,324 C 482,258 504,174 548,96 Z"
+                fill="#E4DFD3" stroke="#17283D" stroke-opacity="0.35" stroke-width="1.2"/>
 
-        <!-- 1. PREFRONTAL CORTEX (Deep Midnight Navy #17283D) -->
-        <path id="reg-pfc" data-region="pfc" class="brain-region" role="button" tabindex="0" aria-label="Prefrontal Cortex"
-              d="M 110,245 C 95,200 110,145 145,110 C 185,70 235,55 280,62 C 275,120 250,175 220,220 C 185,255 145,270 110,245 Z"
-              fill="#17283D" fill-opacity="0.88" stroke="#17283D" stroke-width="2"/>
+          <!-- Corpus Callosum Arch (Central White-Matter Reference) -->
+          <path d="M 248,238 C 234,198 268,162 336,156 C 404,152 458,176 472,216 C 446,206 404,180 338,182 C 280,184 260,212 248,238 Z"
+                fill="#D8D2C5" stroke="#17283D" stroke-opacity="0.5" stroke-width="1.2"/>
 
-        <!-- 2. PARIETAL CORTEX (Charcoal #30343B) -->
-        <path id="reg-parietal" data-region="parietal" class="brain-region" role="button" tabindex="0" aria-label="Parietal Cortex"
-              d="M 280,62 C 350,50 440,55 540,140 C 515,180 495,240 445,225 C 370,175 310,170 280,62 Z"
-              fill="#30343B" fill-opacity="0.82" stroke="#17283D" stroke-width="2"/>
+          <!-- 1. PREFRONTAL CORTEX (Deep Midnight Navy #17283D) -->
+          <path id="reg-pfc" data-region="pfc" class="brain-region" role="button" tabindex="0" aria-label="Prefrontal Cortex"
+                d="M 125,255 C 115,198 156,112 252,72 C 266,136 254,202 222,254 C 190,286 150,284 125,255 Z"
+                fill="#17283D" fill-opacity="0.88" stroke="#17283D" stroke-width="2"/>
 
-        <!-- 3. ANTERIOR CINGULATE CORTEX (Soft Taupe #B69A78) -->
-        <path id="reg-acc" data-region="acc" class="brain-region" role="button" tabindex="0" aria-label="Anterior Cingulate Cortex"
-              d="M 245,235 C 220,205 235,145 280,120 C 345,120 380,135 385,155 C 340,155 275,160 245,235 Z"
-              fill="#B69A78" fill-opacity="0.9" stroke="#17283D" stroke-width="2"/>
+          <!-- 2. PARIETAL CORTEX (Charcoal #30343B) -->
+          <path id="reg-parietal" data-region="parietal" class="brain-region" role="button" tabindex="0" aria-label="Parietal Cortex"
+                d="M 252,72 C 348,38 468,46 548,96 C 518,162 496,216 468,228 C 392,166 312,146 252,72 Z"
+                fill="#30343B" fill-opacity="0.84" stroke="#17283D" stroke-width="2"/>
 
-        <!-- 4. NUCLEUS ACCUMBENS (Warm Bronze-Taupe #8F7657) -->
-        <g id="reg-nac" data-region="nac" class="brain-region" role="button" tabindex="0" aria-label="Nucleus Accumbens">
-          <ellipse cx="260" cy="265" rx="22" ry="18" fill="#8F7657" fill-opacity="0.92" stroke="#17283D" stroke-width="2"/>
-          <circle cx="260" cy="265" r="6" fill="#E9E4D9"/>
+          <!-- 3. ANTERIOR CINGULATE CORTEX (Soft Taupe #B69A78) -->
+          <path id="reg-acc" data-region="acc" class="brain-region" role="button" tabindex="0" aria-label="Anterior Cingulate Cortex"
+                d="M 248,238 C 222,204 238,144 288,118 C 356,114 404,132 418,162 C 362,152 278,162 248,238 Z"
+                fill="#B69A78" fill-opacity="0.92" stroke="#17283D" stroke-width="2"/>
+
+          <!-- 4. NUCLEUS ACCUMBENS (Warm Bronze-Taupe #8F7657) -->
+          <g id="reg-nac" data-region="nac" class="brain-region" role="button" tabindex="0" aria-label="Nucleus Accumbens">
+            <ellipse cx="268" cy="264" rx="22" ry="16" fill="#8F7657" fill-opacity="0.94" stroke="#17283D" stroke-width="2"/>
+            <circle cx="268" cy="264" r="5.5" fill="#E9E4D9"/>
+          </g>
+
+          <!-- 5. HIPPOCAMPUS (Muted Sage #767B6D) -->
+          <path id="reg-hippocampus" data-region="hippocampus" class="brain-region" role="button" tabindex="0" aria-label="Hippocampus"
+                d="M 296,312 C 342,326 402,316 446,272 C 454,254 432,244 406,262 C 368,282 328,294 296,312 Z"
+                fill="#767B6D" fill-opacity="0.92" stroke="#17283D" stroke-width="2"/>
         </g>
 
-        <!-- 5. HIPPOCAMPUS (Muted Sage #767B6D) -->
-        <path id="reg-hippocampus" data-region="hippocampus" class="brain-region" role="button" tabindex="0" aria-label="Hippocampus"
-              d="M 300,310 C 340,325 395,320 440,275 C 450,255 425,245 400,265 C 360,280 325,290 300,310 Z"
-              fill="#767B6D" fill-opacity="0.9" stroke="#17283D" stroke-width="2"/>
+        <!-- ==================== EXTERIOR CALLOUT LABELS (100% OUTSIDE THE BRAIN) ==================== -->
+        <!-- Leader Lines -->
+        <g stroke="#17283D" stroke-width="0.95" stroke-opacity="0.65" fill="none" pointer-events="none">
+          <!-- Top-Left: Prefrontal Cortex -->
+          <polyline points="190,178 160,96 160,82"/>
+          <circle cx="190" cy="178" r="3" fill="#E9E4D9" stroke="#17283D" stroke-width="1.2"/>
 
-        <!-- Region Labels -->
-        <g transform="translate(182, 160)" pointer-events="none">
-          <circle r="3" fill="#E9E4D9"/>
-          <text x="0" y="-11" fill="#E9E4D9" font-family="Cormorant Garamond, serif" font-weight="600" font-size="14" text-anchor="middle">Prefrontal Cortex</text>
-          <text x="0" y="4" fill="#B69A78" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1" text-anchor="middle">EXECUTIVE COGNITION</text>
+          <!-- Top-Center: Anterior Cingulate -->
+          <polyline points="328,164 365,96 365,82"/>
+          <circle cx="328" cy="164" r="3" fill="#17283D"/>
+
+          <!-- Top-Right: Parietal Cortex -->
+          <polyline points="445,142 575,96 575,82"/>
+          <circle cx="445" cy="142" r="3" fill="#E9E4D9" stroke="#17283D" stroke-width="1.2"/>
+
+          <!-- Bottom-Left: Nucleus Accumbens -->
+          <polyline points="268,286 160,468 160,482"/>
+          <circle cx="268" cy="286" r="3" fill="#17283D"/>
+
+          <!-- Bottom-Center: Hippocampus -->
+          <polyline points="370,326 365,468 365,482"/>
+          <circle cx="370" cy="326" r="3" fill="#17283D"/>
+
+          <!-- Bottom-Right: Occipital & Cerebellum -->
+          <polyline points="512,402 575,468 575,482"/>
+          <circle cx="512" cy="402" r="3" fill="#17283D"/>
         </g>
 
-        <g transform="translate(418, 125)" pointer-events="none">
-          <circle r="3" fill="#E9E4D9"/>
-          <text x="0" y="-11" fill="#E9E4D9" font-family="Cormorant Garamond, serif" font-weight="600" font-size="14" text-anchor="middle">Parietal Cortex</text>
-          <text x="0" y="4" fill="#E9E4D9" font-family="Inter, sans-serif" font-size="8.5" letter-spacing="1" text-anchor="middle">TASK EXECUTION</text>
-        </g>
+        <!-- Exterior Label Text (3 in Top Margin, 3 in Bottom Margin — Zero Overlap) -->
+        <g text-anchor="middle" pointer-events="none">
+          <!-- Top Row (y = 60 & 73) -->
+          <text x="160" y="60" fill="#17283D" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="15">Prefrontal Cortex</text>
+          <text x="160" y="73" fill="#B69A78" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">EXECUTIVE COGNITION</text>
 
-        <g transform="translate(295, 140)" pointer-events="none">
-          <text x="0" y="-8" fill="#17283D" font-family="Cormorant Garamond, serif" font-weight="700" font-size="13" text-anchor="middle">Anterior Cingulate</text>
-          <text x="0" y="4" fill="#17283D" font-family="Inter, sans-serif" font-size="8" letter-spacing="0.8" text-anchor="middle">ATTENTION &amp; TRUST</text>
-        </g>
+          <text x="365" y="60" fill="#17283D" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="15">Anterior Cingulate</text>
+          <text x="365" y="73" fill="#B69A78" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">ATTENTION &amp; TRUST</text>
 
-        <g transform="translate(255, 302)" pointer-events="none">
-          <text x="0" y="6" fill="#17283D" font-family="Cormorant Garamond, serif" font-weight="700" font-size="13" text-anchor="middle">Nucleus Accumbens</text>
-          <text x="0" y="18" fill="#30343B" font-family="Inter, sans-serif" font-size="8" letter-spacing="0.8" text-anchor="middle">REWARD HABITUATION</text>
-        </g>
+          <text x="575" y="60" fill="#17283D" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="15">Parietal Cortex</text>
+          <text x="575" y="73" fill="#B69A78" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">TASK EXECUTION</text>
 
-        <g transform="translate(375, 320)" pointer-events="none">
-          <text x="0" y="14" fill="#17283D" font-family="Cormorant Garamond, serif" font-weight="700" font-size="13" text-anchor="middle">Hippocampus</text>
-          <text x="0" y="26" fill="#30343B" font-family="Inter, sans-serif" font-size="8" letter-spacing="0.8" text-anchor="middle">MEMORY CONSOLIDATION</text>
-        </g>
+          <!-- Bottom Row (y = 502 & 515) -->
+          <text x="160" y="502" fill="#17283D" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="15">Nucleus Accumbens</text>
+          <text x="160" y="515" fill="#8F7657" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">REWARD &amp; DEPENDENCE</text>
 
-        <text x="65" y="28" fill="#17283D" font-family="Inter, sans-serif" font-size="9" letter-spacing="1.5" font-weight="600">ANTERIOR</text>
-        <text x="695" y="28" fill="#17283D" font-family="Inter, sans-serif" font-size="9" letter-spacing="1.5" font-weight="600" text-anchor="end">POSTERIOR</text>
+          <text x="365" y="502" fill="#17283D" font-family="Cormorant Garamond, Georgia, serif" font-weight="700" font-size="15">Hippocampus</text>
+          <text x="365" y="515" fill="#767B6D" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">MEMORY CONSOLIDATION</text>
+
+          <text x="575" y="502" fill="#30343B" font-family="Cormorant Garamond, Georgia, serif" font-style="italic" font-weight="600" font-size="15">Occipital &amp; Cerebellum</text>
+          <text x="575" y="515" fill="#A6A99B" font-family="Inter, sans-serif" font-weight="600" font-size="7.5" letter-spacing="1">POSTERIOR CORTEX</text>
+        </g>
       </svg>
     </div>
   </div>
@@ -533,19 +718,21 @@ p <- plot_ly(
 ) |>
   layout(
     xaxis = list(
-      title = "Mean Likert Score (1.0 = Strongly Disagree, 5.0 = Strongly Agree)",
-      range = c(1, 5.35),
+      title = list(text = "Mean Likert Score (1.0 = Strongly Disagree, 5.0 = Strongly Agree)", font = list(size = 11)),
+      range = c(1, 5.4),
       tickvals = 1:5,
       ticktext = c("1.0", "2.0", "3.0", "4.0", "5.0"),
       color = "#30343B",
-      gridcolor = "rgba(23, 40, 61, 0.12)"
+      gridcolor = "rgba(23, 40, 61, 0.1)"
     ),
-    yaxis = list(title = "", color = "#17283D"),
-    margin = list(l = 150, r = 60, t = 15, b = 45),
+    yaxis = list(title = "", color = "#17283D", tickfont = list(family = "Cormorant Garamond, Georgia, serif", size = 15)),
+    hoverlabel = list(bgcolor = "#17283D", bordercolor = "#17283D", font = list(family = "Inter, sans-serif", size = 12, color = "#E9E4D9")),
+    margin = list(l = 160, r = 65, t = 15, b = 45),
     paper_bgcolor = "rgba(0,0,0,0)",
     plot_bgcolor = "rgba(0,0,0,0)",
     font = list(family = "Inter, -apple-system, sans-serif", size = 12, color = "#30343B")
-  )
+  ) |>
+  config(displayModeBar = FALSE)
 
 p
 ```
@@ -634,8 +821,10 @@ p_scatter <- plot_ly(
     ),
     paper_bgcolor = "rgba(0,0,0,0)",
     plot_bgcolor = "#E9E4D9",
+    hoverlabel = list(bgcolor = "#17283D", bordercolor = "#17283D", font = list(family = "Inter, sans-serif", size = 12, color = "#E9E4D9")),
     font = list(family = "Inter, -apple-system, sans-serif", color = "#30343B")
-  )
+  ) |>
+  config(displayModeBar = FALSE)
 
 p_scatter
 ```
@@ -670,9 +859,11 @@ p_demog <- plot_ly(
     showlegend = TRUE,
     paper_bgcolor = "rgba(0,0,0,0)",
     legend = list(font = list(color = "#30343B")),
+    hoverlabel = list(bgcolor = "#17283D", bordercolor = "#17283D", font = list(family = "Inter, sans-serif", size = 12, color = "#E9E4D9")),
     font = list(family = "Inter, -apple-system, sans-serif", color = "#30343B"),
     margin = list(t = 20, b = 20, l = 20, r = 20)
-  )
+  ) |>
+  config(displayModeBar = FALSE)
 
 p_demog
 ```

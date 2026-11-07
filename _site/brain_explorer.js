@@ -1,10 +1,14 @@
-// brain_explorer.js - Interactive Brain Explorer for AI Cognitive Dependence
+// brain_explorer.js - Editorial UX, Scroll Reveals, Micro-Parallax & Brain Atlas
 
 let brainData = null;
 let currentRegion = "pfc";
+let revealObserver = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
+  setupScrollEffects();
   setupSectionNavigation();
+  setupHeroParallax();
+
   try {
     if (window.BRAIN_DATA) {
       brainData = window.BRAIN_DATA;
@@ -18,6 +22,90 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Failed to load brain data:", err);
   }
 });
+
+function setupScrollEffects() {
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 24) {
+        navbar.classList.add("navbar-scrolled");
+      } else {
+        navbar.classList.remove("navbar-scrolled");
+      }
+    }, { passive: true });
+  }
+
+  // Attach .reveal-block to key editorial elements across all sections
+  const revealSelectors = [
+    ".hero-editorial-grid > div:not(.hero-brain-watermark)",
+    ".central-question-block",
+    ".metric-cell",
+    ".editorial-split",
+    ".editorial-col",
+    ".editorial-section-header",
+    ".chart-editorial-frame"
+  ];
+
+  document.querySelectorAll(revealSelectors.join(", ")).forEach((el, idx) => {
+    el.classList.add("reveal-block");
+    // Stagger sibling columns and metric cells subtly
+    const parent = el.parentElement;
+    if (parent && (parent.classList.contains("metrics-strip") ||
+                   parent.classList.contains("editorial-3col") ||
+                   parent.classList.contains("editorial-4col"))) {
+      const siblingIndex = Array.from(parent.children).indexOf(el);
+      el.style.transitionDelay = `${siblingIndex * 75}ms`;
+    }
+  });
+
+  revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: "0px 0px -30px 0px"
+  });
+
+  observeActiveSectionElements();
+}
+
+function observeActiveSectionElements() {
+  if (!revealObserver) return;
+  const activeSec = document.querySelector(".page-section.active-section");
+  if (!activeSec) return;
+
+  activeSec.querySelectorAll(".reveal-block").forEach((el, i) => {
+    el.classList.remove("is-visible");
+    revealObserver.observe(el);
+    // Immediately reveal elements already near the top of the viewport with a gentle cascade
+    setTimeout(() => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92) {
+        el.classList.add("is-visible");
+      }
+    }, 40 + i * 45);
+  });
+}
+
+function setupHeroParallax() {
+  const frame = document.querySelector(".hero-art-frame");
+  const svg = frame ? frame.querySelector("svg") : null;
+  if (!frame || !svg) return;
+
+  frame.addEventListener("mousemove", (e) => {
+    const rect = frame.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 8;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 8;
+    svg.style.transform = `scale(1.018) translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
+  });
+
+  frame.addEventListener("mouseleave", () => {
+    svg.style.transform = "scale(1) translate3d(0, 0, 0)";
+  });
+}
 
 function setupSectionNavigation() {
   const validSections = ["home", "teenage-brain", "ai-thinking", "research-data", "the-future"];
@@ -44,13 +132,14 @@ function setupSectionNavigation() {
       }
     });
 
-    window.scrollTo({ top: 0, behavior: "instant" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    observeActiveSectionElements();
 
     // Resize Plotly charts when Research & Data section becomes visible
     if (targetId === "research-data") {
       setTimeout(() => {
         window.dispatchEvent(new Event("resize"));
-      }, 60);
+      }, 80);
     }
   }
 
@@ -80,12 +169,10 @@ function setupSectionNavigation() {
 function initExplorer() {
   if (!brainData || !brainData.regions) return;
 
-  // Add click & hover listeners to SVG regions
   const svgRegions = document.querySelectorAll(".brain-region");
   svgRegions.forEach(el => {
     const regId = el.getAttribute("data-region");
-    
-    // Hover & click events - reveal info on hover!
+
     el.addEventListener("mouseenter", (e) => {
       selectRegion(regId);
       showTooltip(e, regId);
@@ -101,7 +188,6 @@ function initExplorer() {
     el.addEventListener("mouseleave", hideTooltip);
   });
 
-  // Region nav buttons
   const navBtns = document.querySelectorAll(".region-btn");
   navBtns.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -110,16 +196,15 @@ function initExplorer() {
     });
   });
 
-  // Select initial region
-  selectRegion("pfc");
+  selectRegion("pfc", true);
 }
 
-function selectRegion(regId) {
+function selectRegion(regId, immediate = false) {
   if (!brainData.regions[regId]) return;
+  const isSame = currentRegion === regId && !immediate;
   currentRegion = regId;
   const reg = brainData.regions[regId];
 
-  // Update SVG highlights
   document.querySelectorAll(".brain-region").forEach(el => {
     if (el.getAttribute("data-region") === regId) {
       el.classList.add("selected");
@@ -130,7 +215,6 @@ function selectRegion(regId) {
     }
   });
 
-  // Update nav buttons
   document.querySelectorAll(".region-btn").forEach(btn => {
     if (btn.getAttribute("data-reg") === regId) {
       btn.classList.add("active");
@@ -139,8 +223,16 @@ function selectRegion(regId) {
     }
   });
 
-  // Render detail card
-  renderDetailCard(reg);
+  const detailCard = document.querySelector(".detail-card");
+  if (detailCard && !immediate && !isSame) {
+    detailCard.classList.add("switching-region");
+    setTimeout(() => {
+      renderDetailCard(reg);
+      detailCard.classList.remove("switching-region");
+    }, 110);
+  } else {
+    renderDetailCard(reg);
+  }
 }
 
 function renderDetailCard(reg) {
@@ -172,8 +264,7 @@ function renderDetailCard(reg) {
   scoreNum.textContent = reg.mean_score.toFixed(2);
   scoreNum.style.color = pal.hex;
   highPct.textContent = `${reg.high_dependence_pct}% of students score high (≥ 3.5 / 5)`;
-  
-  // Progress bar out of 5
+
   const pctOf5 = ((reg.mean_score - 1) / 4) * 100;
   progressBar.style.width = `${pctOf5}%`;
   progressBar.style.backgroundColor = pal.hex;
@@ -183,7 +274,6 @@ function renderDetailCard(reg) {
   neuro.textContent = reg.neuro_note;
   neuro.style.borderLeftColor = pal.hex;
 
-  // Render questions
   questionsList.innerHTML = reg.questions.map((q, idx) => {
     const d = q.distribution;
     const total = d["Strongly Disagree"] + d["Disagree"] + d["Neutral"] + d["Agree"] + d["Strongly Agree"];
@@ -197,11 +287,11 @@ function renderDetailCard(reg) {
       <div class="q-item">
         <div class="q-header">
           <span>${idx + 1}. ${escapeHtml(q.question)}</span>
-          <span class="q-score" style="color: ${pal.hex}; background: rgba(${pal.rgb}, 0.14)">${q.mean.toFixed(2)}</span>
+          <span class="q-score" style="color: ${pal.hex}; background: rgba(${pal.rgb}, 0.1)">${q.mean.toFixed(2)}</span>
         </div>
-        <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-top: 2px;">
-          <span>Agreement: <strong>${q.agree_pct}%</strong></span>
-          <span>Likert: 1 to 5</span>
+        <div style="display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.04em; color: #30343B; opacity: 0.75; margin-top: 2px;">
+          <span>Agreement Share: <strong>${q.agree_pct}%</strong></span>
+          <span>5-Point Scale</span>
         </div>
         <div class="likert-mini-bar" title="SD: ${pSD}%, D: ${pD}%, N: ${pN}%, A: ${pA}%, SA: ${pSA}%">
           <div class="likert-seg seg-sd" style="width: ${pSD}%"></div>
@@ -214,7 +304,6 @@ function renderDetailCard(reg) {
     `;
   }).join("");
 
-  // Subgroup cards
   const acadLevels = reg.by_academic_level;
   const uniTypes = reg.by_university_type.filter(u => u["University Type"] !== "Other");
 
@@ -224,7 +313,7 @@ function renderDetailCard(reg) {
       subHtml += `
         <div class="subgroup-card">
           <div class="title">${escapeHtml(item["Academic Level"])}</div>
-          <div class="val">${item.mean.toFixed(2)} <span style="font-size:0.7rem; font-weight:normal; color:#64748b;">(n=${item.n})</span></div>
+          <div class="val">${item.mean.toFixed(2)} <span style="font-family: Inter, sans-serif; font-size:0.68rem; font-weight:400; color:#30343B; opacity: 0.7;">(n=${item.n})</span></div>
         </div>
       `;
     });
@@ -235,7 +324,7 @@ function renderDetailCard(reg) {
       subHtml += `
         <div class="subgroup-card">
           <div class="title">${escapeHtml(item["University Type"])}</div>
-          <div class="val">${item.mean.toFixed(2)} <span style="font-size:0.7rem; font-weight:normal; color:#64748b;">(n=${item.n})</span></div>
+          <div class="val">${item.mean.toFixed(2)} <span style="font-family: Inter, sans-serif; font-size:0.68rem; font-weight:400; color:#30343B; opacity: 0.7;">(n=${item.n})</span></div>
         </div>
       `;
     });
@@ -254,13 +343,13 @@ function getTooltip() {
     tooltipEl.style.position = "fixed";
     tooltipEl.style.pointerEvents = "none";
     tooltipEl.style.zIndex = "9999";
-    tooltipEl.style.background = "#0f172a";
-    tooltipEl.style.color = "#ffffff";
-    tooltipEl.style.padding = "6px 12px";
-    tooltipEl.style.borderRadius = "6px";
-    tooltipEl.style.fontSize = "0.8rem";
-    tooltipEl.style.fontWeight = "600";
-    tooltipEl.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+    tooltipEl.style.background = "#17283D";
+    tooltipEl.style.color = "#E9E4D9";
+    tooltipEl.style.padding = "7px 13px";
+    tooltipEl.style.borderRadius = "0px";
+    tooltipEl.style.fontSize = "0.74rem";
+    tooltipEl.style.fontWeight = "500";
+    tooltipEl.style.boxShadow = "0 10px 24px rgba(23, 40, 61, 0.22)";
     tooltipEl.style.display = "none";
     document.body.appendChild(tooltipEl);
   }
@@ -271,11 +360,8 @@ function showTooltip(e, regId) {
   if (!brainData || !brainData.regions[regId]) return;
   const reg = brainData.regions[regId];
   const tip = getTooltip();
-  tip.style.background = "#17283D";
-  tip.style.color = "#E9E4D9";
-  tip.style.borderRadius = "0px";
   tip.style.fontFamily = "'Inter', sans-serif";
-  tip.style.letterSpacing = "0.04em";
+  tip.style.letterSpacing = "0.05em";
   tip.innerHTML = `<strong>${reg.name}</strong> &mdash; ${reg.mean_score.toFixed(2)} / 5.0`;
   tip.style.display = "block";
   moveTooltip(e);
@@ -283,8 +369,8 @@ function showTooltip(e, regId) {
 
 function moveTooltip(e) {
   const tip = getTooltip();
-  tip.style.left = `${e.clientX + 14}px`;
-  tip.style.top = `${e.clientY + 14}px`;
+  tip.style.left = `${e.clientX + 16}px`;
+  tip.style.top = `${e.clientY + 16}px`;
 }
 
 function hideTooltip() {
