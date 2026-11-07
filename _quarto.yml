@@ -5,19 +5,30 @@ project:
     - data/brain_data.json
 
 website:
-  title: "AI Cognitive Dependence & The Brain"
+  title: "THE THINKING GENERATION"
   navbar:
-    background: "#0f172a"
+    background: "#E9E4D9"
+    foreground: "#17283D"
     search: false
     left:
-      - href: index.qmd
-        text: "Interactive Brain Atlas"
-      - href: dataset.qmd
-        text: "Dataset & Methodology"
+      - href: index.qmd#home
+        text: "Home"
+      - href: index.qmd#teenage-brain
+        text: "The Teenage Brain"
+      - href: index.qmd#ai-thinking
+        text: "AI & Human Thinking"
+      - href: index.qmd#research-data
+        text: "Research & Data"
+      - href: index.qmd#the-future
+        text: "The Future"
 
 format:
   html:
-    theme: darkly
+    theme: cosmo
     css: styles.css
-    toc: true
-    toc-depth: 2
+    toc: false
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
